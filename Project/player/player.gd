@@ -40,7 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	update_fps()
+
 	handle_input(delta)
 	headbob_effet(delta)
 	move_and_slide()
@@ -84,6 +84,3 @@ func headbob_effet(delta: float) -> void:
 		sin(headbob_time * headbob_frequency) * headbob_move_amount,
 		0
 	)
-
-func update_fps() -> void:
-	%FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()

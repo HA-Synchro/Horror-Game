@@ -15,11 +15,14 @@ run/main_scene="uid://genecn20vsi2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+UIManager="*res://autoloads/ui_manager.tscn"
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
 [input]

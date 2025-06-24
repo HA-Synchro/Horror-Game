@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://sinqg0nbfqmf"]
+
+[ext_resource type="Script" uid="uid://dvad25kk6si58" path="res://interactables/interactable.gd" id="1_kdhm5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtoeu"]
+size = Vector3(2, 2, 2)
+
+[node name="Interactable" type="Area3D"]
+script = ExtResource("1_kdhm5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.079834)
+shape = SubResource("BoxShape3D_vtoeu")
+
+[node name="Label3D" type="Label3D" parent="."]
+visible = false
+billboard = 1
+text = "Press \"E\" to interact"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
