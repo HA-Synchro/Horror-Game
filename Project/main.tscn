@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://genecn20vsi2"]
+[gd_scene load_steps=6 format=3 uid="uid://genecn20vsi2"]
 
-[ext_resource type="Texture2D" uid="uid://dnnbpe0cuk0oi" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://sinqg0nbfqmf" path="res://interactables/interactable.tscn" id="4_1bvp3"]
+[ext_resource type="Material" uid="uid://cmktivbetmj47" path="res://kenny_material_dark_floor.tres" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.207815, 0.15889, 0.0276943, 1)
 
 [sub_resource type="Sky" id="Sky_ig7tw"]
 sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
@@ -17,21 +17,9 @@ sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
-shading_mode = 0
-albedo_texture = ExtResource("1_0xm2m")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-uv2_world_triplanar = true
+fog_light_color = Color(0.0403304, 0.0482077, 0.0605891, 1)
 
 [node name="Main" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-layers = 3
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")
@@ -58,50 +46,64 @@ render_target_update_mode = 4
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133419, 1.54097, -0.00816345)
 
-[node name="Interactable" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0699, 2.26796, -1.03046)
-
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130489, 0.108063, -0.0903015)
 use_collision = true
 
 [node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78161, -0.108063, 7.30389)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1119, -0.108063, 8.80958)
 use_collision = true
-size = Vector3(80, 10, 50)
-material = SubResource("StandardMaterial3D_ig7tw")
+size = Vector3(25, 20, 33)
+material = ExtResource("3_h2yge")
+
+[node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87812, -0.108063, 2.68985)
+use_collision = true
+size = Vector3(25, 20, 18)
+material = ExtResource("3_h2yge")
 
 [node name="Negative" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67708, 1.91592, 2.80539)
 operation = 2
 size = Vector3(15, 8, 15)
+material = ExtResource("3_h2yge")
 
 [node name="Negative3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5893, 1.91592, 3)
 operation = 2
 size = Vector3(20, 8, 20)
+material = ExtResource("3_h2yge")
 
 [node name="Negative4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5893, 1.91592, 19.3624)
 operation = 2
 size = Vector3(20, 8, 10)
+material = ExtResource("3_h2yge")
 
 [node name="Negative2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5733, 1.91592, 5.09252)
 operation = 2
 size = Vector3(10, 8, 10)
+material = ExtResource("3_h2yge")
 
 [node name="DoorNegative" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3861, -0.0691242, 2.99604)
 operation = 2
 size = Vector3(0.5, 4, 3)
+material = ExtResource("3_h2yge")
 
 [node name="DoorNegative2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26897, -0.0691242, 7.64648)
 operation = 2
 size = Vector3(1, 4, 3)
+material = ExtResource("3_h2yge")
 
 [node name="DoorNegative3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.9503, -0.0691242, 13.7203)
 operation = 2
 size = Vector3(2, 4, 3)
+material = ExtResource("3_h2yge")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.20234, 0.83827, -3.79978)
+omni_range = 11.685
