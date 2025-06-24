@@ -1,0 +1,1 @@
+You’ve just moved into a new apartment. Everything feels fine — except sometimes, through the window, you see someone staring from the apartment across the street. But nobody lives there.

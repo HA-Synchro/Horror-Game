@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"a032c4e8519af688","type":"file","file":"Images/Map.png","x":-160,"y":-720,"width":400,"height":271},
+		{"id":"2d724767e287e10d","x":-146,"y":-240,"width":372,"height":400,"type":"file","file":"Images/BedRoom.png"},
+		{"id":"3a1a6264985701d7","x":-600,"y":-240,"width":281,"height":400,"type":"file","file":"Images/WashRoom.png"},
+		{"id":"2d922a80d1096b1b","x":400,"y":280,"width":400,"height":271,"type":"file","file":"Images/Kitchen.png"},
+		{"id":"44763d39a406c49b","x":360,"y":-240,"width":440,"height":293,"type":"file","file":"Images/LivingRoom.png"},
+		{"id":"13e6d1185f707e3b","x":-104,"y":351,"width":289,"height":400,"type":"file","file":"Images/HomeExit.png"}
+	],
+	"edges":[
+		{"id":"07c9c8115afd2a61","fromNode":"a032c4e8519af688","fromSide":"bottom","toNode":"2d724767e287e10d","toSide":"top"},
+		{"id":"94f0b2db9f4e9f3c","fromNode":"a032c4e8519af688","fromSide":"right","toNode":"44763d39a406c49b","toSide":"top"},
+		{"id":"8875e257559d40e9","fromNode":"a032c4e8519af688","fromSide":"left","toNode":"3a1a6264985701d7","toSide":"top"},
+		{"id":"c346e7a29ec16851","fromNode":"44763d39a406c49b","fromSide":"bottom","toNode":"2d922a80d1096b1b","toSide":"top"},
+		{"id":"3f26165dde5373cc","fromNode":"2d724767e287e10d","fromSide":"right","toNode":"44763d39a406c49b","toSide":"left"},
+		{"id":"f13272f37abb119c","fromNode":"3a1a6264985701d7","fromSide":"right","toNode":"2d724767e287e10d","toSide":"left"},
+		{"id":"0eb7f440df76c07f","fromNode":"44763d39a406c49b","fromSide":"bottom","toNode":"13e6d1185f707e3b","toSide":"top"}
+	]
+}

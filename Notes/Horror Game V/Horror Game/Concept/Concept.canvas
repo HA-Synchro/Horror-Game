@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"28e1d8b9d1eae785","type":"file","file":"Concept/Main Story Cnc.md","x":-160,"y":-620,"width":400,"height":220},
+		{"id":"d38e38047bb24396","type":"file","file":"Concept/Core Mechanics.md","x":-560,"y":-360,"width":400,"height":400},
+		{"id":"ab1df514757f2ff7","type":"file","file":"Concept/Day by Day  Progression.md","x":-560,"y":160,"width":400,"height":400},
+		{"id":"0d100314e1c22d94","type":"file","file":"Concept/Distant Figure.md","x":-40,"y":160,"width":400,"height":400},
+		{"id":"3978c5a4c2c5b653","type":"file","file":"Scope.md","x":440,"y":-360,"width":400,"height":400},
+		{"id":"61c33a20d712b3bd","x":-1080,"y":160,"width":400,"height":400,"type":"file","file":"Concept/Environment Story Telling.md"}
+	],
+	"edges":[
+		{"id":"eb7e3500ef4c6c3d","fromNode":"28e1d8b9d1eae785","fromSide":"left","toNode":"d38e38047bb24396","toSide":"top"},
+		{"id":"6600b38d0b1efeb6","fromNode":"d38e38047bb24396","fromSide":"bottom","toNode":"ab1df514757f2ff7","toSide":"top"},
+		{"id":"bf8d7b26430bba1a","fromNode":"d38e38047bb24396","fromSide":"right","toNode":"0d100314e1c22d94","toSide":"top"},
+		{"id":"32fff8c2a487dd20","fromNode":"28e1d8b9d1eae785","fromSide":"right","toNode":"3978c5a4c2c5b653","toSide":"top"},
+		{"id":"1b1fe202bd311e57","fromNode":"d38e38047bb24396","fromSide":"left","toNode":"61c33a20d712b3bd","toSide":"top"}
+	]
+}
