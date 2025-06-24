@@ -13,7 +13,7 @@ class_name Player3D
 
 @export_group("CameraEffects")
 @export var headbob_move_amount = 0.06
-@export var headbob_frequency = 2.4
+@export var headbob_frequency = 1.2
 
 #endregion
 
@@ -39,9 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		
 func _physics_process(delta: float) -> void:
-	apply_gravity(delta)
-
 	handle_input(delta)
+	apply_gravity(delta)
 	headbob_effet(delta)
 	move_and_slide()
 
