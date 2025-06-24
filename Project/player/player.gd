@@ -12,13 +12,15 @@ class_name Player3D
 @export var ground_friction : float = 6.0
 
 @export_group("CameraEffects")
-@export var headbob_move_amount = 0.06
+@export var headbob_move_amount = 0.12
 @export var headbob_frequency = 1.2
 
 #endregion
 
 var wish_dir : Vector3 = Vector3.ZERO
 var headbob_time : float = 0.0
+var time_since_last_footstep : float = 0.0
+
 @onready var camera : Camera3D = %Camera3D
 
 func _ready() -> void:
@@ -34,14 +36,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			rotate_y(-event.relative.x * look_sensitivity)
-			camera.rotate_x(-event.relative.y * look_sensitivity)
+			self.rotation.y += -event.relative.x * look_sensitivity
+			# self.rotation.y = lerp(self.rotation.y, self.rotation.y + -event.relative.x * look_sensitivity, .8)
+			camera.rotation.x += (-event.relative.y * look_sensitivity)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
 	apply_gravity(delta)
 	headbob_effet(delta)
+	footsteps(delta)
 	move_and_slide()
 
 func handle_input(delta : float) -> void:
@@ -83,3 +87,10 @@ func headbob_effet(delta: float) -> void:
 		sin(headbob_time * headbob_frequency) * headbob_move_amount,
 		0
 	)
+
+func footsteps(delta : float) -> void:
+	if self.velocity.length() < 1: return
+	time_since_last_footstep += delta
+	if time_since_last_footstep * 9 > velocity.length():
+		SFXManager.play_FX_3D(SFXManager.footsteps_sfx_array.pick_random(), self.global_position, -10, 0.9, 1.1)
+		time_since_last_footstep = 0
