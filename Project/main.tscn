@@ -112,18 +112,8 @@ material = ExtResource("3_h2yge")
 
 [node name="Lights" type="Node3D" parent="."]
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7585, 0.83827, -3.79978)
-omni_range = 11.685
-omni_attenuation = 0.5
-
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0904, 0.83827, 19.2969)
-omni_range = 11.685
-omni_attenuation = 0.5
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0762, 0.83827, 4.51443)
 omni_range = 11.685
 omni_attenuation = 0.5
 
@@ -131,6 +121,23 @@ omni_attenuation = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0372, 0.00444131, 0.781469)
 
 [node name="OmniLight3D" parent="Lights/LightSwitch/Interactable3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)
+omni_range = 6.83287
+
+[node name="LightSwitch3" parent="Lights" instance=ExtResource("3_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70891, 0.00444131, 4.79828)
+
+[node name="CollisionShape3D" parent="Lights/LightSwitch3/Interactable3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056543, 0, 0)
+
+[node name="OmniLight3D" parent="Lights/LightSwitch3/Interactable3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5076, 0.83827, -7.16974)
+omni_range = 12.7818
+
+[node name="LightSwitch2" parent="Lights" instance=ExtResource("3_lquwl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.4221, 0.00444131, 5.05405)
+
+[node name="OmniLight3D" parent="Lights/LightSwitch2/Interactable3D" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)
 omni_range = 6.83287
 
@@ -149,3 +156,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.601
 transform = Transform3D(0.0237342, 0, -0.999718, 0, 1, 0, 0.999718, 0, 0.0237342, -15.3246, -1.32602, 1.6868)
 
 [editable path="Lights/LightSwitch"]
+[editable path="Lights/LightSwitch3"]
+[editable path="Lights/LightSwitch2"]
