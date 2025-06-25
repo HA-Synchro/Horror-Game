@@ -9,3 +9,5 @@ func _process(delta: float) -> void:
 		var hitObj = get_collider()
 		if hitObj.has_method("interact") && Input.is_action_just_pressed("interact"):
 			hitObj.interact()
+		if hitObj.has_method("drawer_interact") && Input.is_action_just_pressed("interact"):
+			hitObj.drawer_interact()
