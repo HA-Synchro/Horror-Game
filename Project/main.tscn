@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://genecn20vsi2"]
 
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://Scenes/door.tscn" id="3_1bvp3"]
-[ext_resource type="Material" uid="uid://cmktivbetmj47" path="res://kenny_material_dark_floor.tres" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://Scenes/drawer.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://interactables/door.tscn" id="3_1bvp3"]
+[ext_resource type="Material" uid="uid://cmktivbetmj47" path="res://resources/materials/kenny_material_dark_floor.tres" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -134,11 +134,10 @@ omni_attenuation = 0.5
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="Door" parent="Doors" instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5682, -1.94619, 4.16796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3278, -2.07094, 1.40024)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5623, -0.402344, 4.1399)
-size = Vector3(0.267456, 3.00195, 0.244141)
+[node name="Door2" parent="Doors" instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29247, -2.07094, 5.97064)
 
 [node name="Drawer" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.0237342, 0, -0.999718, 0, 1, 0, 0.999718, 0, 0.0237342, -15.3246, -1.32602, 1.6868)

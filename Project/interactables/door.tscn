@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://da1i6blxbhlkk"]
+
+[ext_resource type="Script" uid="uid://iumqoqhcf2oh" path="res://interactables/door.gd" id="1_w6aom"]
+[ext_resource type="PackedScene" uid="uid://sinqg0nbfqmf" path="res://interactables/interactable.tscn" id="1_yney3"]
+
+[sub_resource type="Animation" id="Animation_a43ba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_burcv"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-1.07177, -1.07177),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ab4ky"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-1.18921, -1.18921),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kj2pw"]
+_data = {
+&"RESET": SubResource("Animation_a43ba"),
+&"close": SubResource("Animation_burcv"),
+&"open": SubResource("Animation_ab4ky")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ts7s"]
+size = Vector3(0.5, 4, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72qb0"]
+size = Vector3(0.5, 4, 3)
+
+[node name="Door" instance=ExtResource("1_yney3")]
+script = ExtResource("1_w6aom")
+
+[node name="Label3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65284, 1.58963)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_kj2pw")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05104, 1.48145)
+mesh = SubResource("BoxMesh_1ts7s")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05104, 1.48145)
+shape = SubResource("BoxShape3D_72qb0")

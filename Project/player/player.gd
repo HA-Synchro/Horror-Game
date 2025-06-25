@@ -93,7 +93,9 @@ func headbob_effet(delta: float) -> void:
 		0
 	)
 
+#TODO: Add footsteps
 func footsteps(delta : float) -> void:
+	return 
 	if self.velocity.length() < 1: return
 	time_since_last_footstep += delta
 	if time_since_last_footstep * 9 > velocity.length():
