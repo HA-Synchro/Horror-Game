@@ -31,7 +31,7 @@ func play_music(stream : AudioStream, volume = 1, fade_dur = 0, pitch_scale = 1)
 	tween_2.kill()
 	
 
-func play_FX(stream: AudioStream, volume = 10, lower_bound: int = 0.9, upper_bound: int = 1.1):
+func play_FX(stream: AudioStream, volume = 10, lower_bound: float = 0.9, upper_bound: float = 1.1):
 	# Create new stream player
 	var fx_player = AudioStreamPlayer.new()
 	# Assign its variables
@@ -47,8 +47,7 @@ func play_FX(stream: AudioStream, volume = 10, lower_bound: int = 0.9, upper_bou
 	await fx_player.finished
 	fx_player.queue_free()
 
-func play_FX_3D(stream: AudioStream, pos : Vector3, volume = 10, lower_bound: int = 1, upper_bound: int = 1.5):
-	print("Stream: %s" % stream)
+func play_FX_3D(stream: AudioStream, pos : Vector3, volume = 10, lower_bound: float = 1, upper_bound: float = 1.5):
 	# Create new stream player
 	var fx_player := AudioStreamPlayer3D.new()
 	add_child(fx_player)

@@ -95,8 +95,9 @@ func headbob_effet(delta: float) -> void:
 
 #TODO: Add footsteps
 func footsteps(delta : float) -> void:
-	if self.velocity.length() < 1: return
-	time_since_last_footstep += delta * self.velocity.length() / 6
-	if time_since_last_footstep * 9 > velocity.length():
-		SFXManager.play_FX_3D(SFXManager.footsteps_sfx_array.pick_random(), self.global_position, 10, 1, 1)
+	if velocity.length() < 1: return
+	time_since_last_footstep += delta * velocity.length() / 6
+	
+	if time_since_last_footstep * 10 > velocity.length():
+		SFXManager.play_FX_3D(SFXManager.footsteps_sfx_array.pick_random(), self.global_position, 12, 1, 1)
 		time_since_last_footstep = 0
