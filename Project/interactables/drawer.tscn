@@ -1,27 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://crl808wlxiqo4"]
+[gd_scene load_steps=10 format=3 uid="uid://crl808wlxiqo4"]
 
 [ext_resource type="PackedScene" uid="uid://sinqg0nbfqmf" path="res://interactables/interactable.tscn" id="1_bugdg"]
 [ext_resource type="Script" uid="uid://x8gq5rqnsfue" path="res://interactables/drawer.gd" id="1_wj4vv"]
+[ext_resource type="Texture2D" uid="uid://bps2cmosuheap" path="res://assets/E.png" id="3_3eihj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x4kh7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3eihj"]
-
-[sub_resource type="Animation" id="Animation_bs7ir"]
-resource_name = "d_open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Drawer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.321, 0.005), Vector3(1.02802, 0.321, 0.005)]
-}
 
 [sub_resource type="Animation" id="Animation_bugdg"]
 length = 0.001
@@ -52,6 +37,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.02802, 0.321, 0.005), Vector3(0, 0.321, 0.005)]
+}
+
+[sub_resource type="Animation" id="Animation_bs7ir"]
+resource_name = "d_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Drawer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.321, 0.005), Vector3(1.02802, 0.321, 0.005)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hx4qk"]
@@ -92,3 +93,10 @@ shape = SubResource("BoxShape3D_3eihj")
 libraries = {
 &"": SubResource("AnimationLibrary_hx4qk")
 }
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="7"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+visible = false
+billboard = 1
+texture_filter = 1
+texture = ExtResource("3_3eihj")

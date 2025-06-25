@@ -2,6 +2,7 @@ extends RayCast3D
 
 var hit_obj : Interactable3D = null
 
+
 func _process(delta: float) -> void:
 	if is_colliding():
 		if  not (get_collider() is Interactable3D): return

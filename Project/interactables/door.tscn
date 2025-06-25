@@ -65,12 +65,6 @@ size = Vector3(0.5, 4, 3)
 [node name="Door" type="StaticBody3D" parent="."]
 script = ExtResource("1_w6aom")
 
-[node name="Label3D" type="Label3D" parent="Door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65284, 1.58963)
-visible = false
-billboard = 1
-text = "Press \"E\" to interact"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door"]
 root_node = NodePath("../..")
 libraries = {
