@@ -6,8 +6,8 @@ class_name Player3D
 #region ExportVariables
 @export_group("Movement")
 @export var look_sensitivity : float = 0.006
-@export var walk_speed : float = 7.0
-@export var sprint_speed : float = 10
+@export var walk_speed : float = 6
+@export var sprint_speed : float = 8
 @export var acceleration : float = 14
 @export var decceleration : float = 10
 @export var ground_friction : float = 6.0
@@ -95,9 +95,8 @@ func headbob_effet(delta: float) -> void:
 
 #TODO: Add footsteps
 func footsteps(delta : float) -> void:
-	return 
 	if self.velocity.length() < 1: return
-	time_since_last_footstep += delta
+	time_since_last_footstep += delta * self.velocity.length() / 6
 	if time_since_last_footstep * 9 > velocity.length():
-		SFXManager.play_FX_3D(SFXManager.footsteps_sfx_array.pick_random(), self.global_position, -10, 0.9, 1.1)
+		SFXManager.play_FX_3D(SFXManager.footsteps_sfx_array.pick_random(), self.global_position, 10, 1, 1)
 		time_since_last_footstep = 0

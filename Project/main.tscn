@@ -120,9 +120,6 @@ omni_attenuation = 0.5
 [node name="LightSwitch" parent="Lights" instance=ExtResource("3_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0372, 0.00444131, 0.781469)
 
-[node name="CollisionShape3D" parent="Lights/LightSwitch/Interactable3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056543, 0, 0)
-
 [node name="OmniLight3D" parent="Lights/LightSwitch/Interactable3D" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)
 omni_range = 6.83287
@@ -136,9 +133,6 @@ omni_range = 12.7818
 
 [node name="LightSwitch2" parent="Lights" instance=ExtResource("3_lquwl")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.4221, 0.00444131, 5.05405)
-
-[node name="CollisionShape3D" parent="Lights/LightSwitch2/Interactable3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056543, 0, 0)
 
 [node name="OmniLight3D" parent="Lights/LightSwitch2/Interactable3D" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)

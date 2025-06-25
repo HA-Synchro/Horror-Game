@@ -1,16 +1,12 @@
 extends Node2D
 
 @export var footsteps_sfx_array : Array[AudioStream] = [
-	preload("res://assets/audio/footsteps/footstep1.mp3"),
-	preload("res://assets/audio/footsteps/footstep2.mp3"),
-	preload("res://assets/audio/footsteps/footstep3.mp3"),
-	preload("res://assets/audio/footsteps/footstep4.mp3"),
-	preload("res://assets/audio/footsteps/footstep5.mp3"),
-	preload("res://assets/audio/footsteps/footstep6.mp3"),
-	preload("res://assets/audio/footsteps/footstep7.mp3"),
-	preload("res://assets/audio/footsteps/footstep8.mp3"),
-	preload("res://assets/audio/footsteps/footstep9.mp3"),
-	preload("res://assets/audio/footsteps/footstep10.mp3"),
+	preload("res://assets/audio/new_footsteps/footstep1.mp3"),
+	preload("res://assets/audio/new_footsteps/footstep2.mp3"),
+	preload("res://assets/audio/new_footsteps/footstep3.mp3"),
+	preload("res://assets/audio/new_footsteps/footstep4.mp3"),
+	preload("res://assets/audio/new_footsteps/footstep5.mp3"),
+	preload("res://assets/audio/new_footsteps/footstep6.mp3"),
 ]
 
 
