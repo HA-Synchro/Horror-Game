@@ -10,12 +10,13 @@ func interact():
 	if can_interact == true:
 		can_interact = false
 		
-		door_open = !door_open
 		
-		if door_open == false:
+		
+		if door_open:
 			animation_player.play("close")
-		if door_open == true:
+		else:
 			animation_player.play("open")
-			
+		
+		door_open = !door_open
 		await animation_player.animation_finished
 		can_interact = true

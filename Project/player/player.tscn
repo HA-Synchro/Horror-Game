@@ -53,6 +53,6 @@ far = 1000.0
 spot_range = 10.667
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0.00219154, -0.280145, -0.452755)
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, -0.54)
 collide_with_areas = true
 script = ExtResource("2_rkbax")

@@ -7,10 +7,12 @@ var drawer_open = false
 func interact():
 	if can_interact:
 		can_interact = false
-		drawer_open = !drawer_open
-		if drawer_open == false:
+		
+		if drawer_open:
 			animation_player.play("d_close")
-		if drawer_open == true:
+		else:
 			animation_player.play("d_open")
+		
+		drawer_open = !drawer_open
 		await animation_player.animation_finished
 		can_interact =true
