@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://genecn20vsi2"]
+[gd_scene load_steps=10 format=3 uid="uid://genecn20vsi2"]
 
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://interactables/door.tscn" id="3_1bvp3"]
 [ext_resource type="Material" uid="uid://cmktivbetmj47" path="res://resources/materials/kenny_material_dark_floor.tres" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dka7047xblyt5" path="res://interactables/light_switch.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -137,6 +138,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.42
 [node name="OmniLight3D" parent="Lights/LightSwitch2/Interactable3D" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)
 omni_range = 6.83287
+
+[node name="Box" parent="Lights" instance=ExtResource("4_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5688, -1.47602, 8.25122)
 
 [node name="Doors" type="Node3D" parent="."]
 

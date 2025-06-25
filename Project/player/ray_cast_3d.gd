@@ -5,6 +5,14 @@ var hit_obj : Interactable3D = null
 
 func _process(delta: float) -> void:
 	if is_colliding():
+		
+		var hitObj = get_collider()
+		
+		if hitObj.has_method("box_interact") && Input.is_action_just_pressed("interact"):
+			hitObj.box_interact()
+		
+		
+		
 		if  not (get_collider() is Interactable3D): return
 		
 		# if alreay an object in focus
