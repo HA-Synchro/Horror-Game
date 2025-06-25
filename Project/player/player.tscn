@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcvtvswxvpq6y"]
+[gd_scene load_steps=7 format=3 uid="uid://dcvtvswxvpq6y"]
 
 [ext_resource type="Script" uid="uid://bkh28wf5h2qxl" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://bvu3tavyxxh3o" path="res://Scripts/ray_cast_3d.gd" id="2_rkbax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.570097
@@ -40,6 +41,11 @@ skeleton = NodePath("../..")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head"]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, -0.29, 0)
+collide_with_areas = true
+script = ExtResource("2_rkbax")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 unique_name_in_owner = true

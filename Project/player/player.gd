@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Player3D
 
 
+
 #region ExportVariables
 @export_group("Movement")
 @export var look_sensitivity : float = 0.006
@@ -15,13 +16,17 @@ class_name Player3D
 @export var headbob_move_amount = 0.12
 @export var headbob_frequency = 1.2
 
+
+
 #endregion
 
 var wish_dir : Vector3 = Vector3.ZERO
 var headbob_time : float = 0.0
 var time_since_last_footstep : float = 0.0
 
+
 @onready var camera : Camera3D = %Camera3D
+
 
 func _ready() -> void:
 	for child in $Body.find_children("*", "VisualInstance3D"):
