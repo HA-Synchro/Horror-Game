@@ -39,7 +39,7 @@ He is not dangerous until he has gotten the knife
 
 # Malfunctioned TV
 
-The TV is not right, it automatically turns on and consumes so much electricity that the light of the home starts fluctoating and then turn off.
+The TV is not right, it automatically turns on and consumes so much electricity that the light of the home starts fluctuating and then turn off.
 
 You should turn this off to prevent it from lights going down.
 

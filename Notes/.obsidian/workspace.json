@@ -15,9 +15,9 @@
               "state": {
                 "file": "Concept/Concept.canvas",
                 "viewState": {
-                  "x": -120,
-                  "y": -30,
-                  "zoom": -1.630766190334281
+                  "x": -98.49682376296403,
+                  "y": -98.88407515744026,
+                  "zoom": -1
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -30,12 +30,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Concept/Core Mechanics.md",
+                "file": "Ideas/GameLoop.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Core Mechanics"
+              "title": "GameLoop"
             }
           },
           {
@@ -44,12 +44,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Concept/Core Mechanics.md",
+                "file": "Ideas/GameLoop.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Core Mechanics"
+              "title": "GameLoop"
             }
           }
         ],
@@ -202,9 +202,12 @@
   },
   "active": "5f2f71f1b5604465",
   "lastOpenFiles": [
-    "Concept/Day by Day  Progression.md",
-    "Concept/Core Mechanics.md",
     "Concept/Main Story Cnc.md",
-    "Concept/Concept.canvas"
+    "Concept/Distant Figure.md",
+    "Concept/Map.canvas",
+    "Concept/Concept.canvas",
+    "Ideas/GameLoop.md",
+    "Concept/Core Mechanics.md",
+    "Concept/Day by Day  Progression.md"
   ]
 }
