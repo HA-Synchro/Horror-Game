@@ -13,7 +13,11 @@ func _process(delta: float) -> void:
 		
 		
 		
-		if  not (get_collider() is Interactable3D): return
+		if  not (get_collider() is Interactable3D):
+			if hit_obj:
+				hit_obj.on_ray_cast_uncollide()
+				hit_obj = null
+			return
 		
 		# if alreay an object in focus
 		if hit_obj:
