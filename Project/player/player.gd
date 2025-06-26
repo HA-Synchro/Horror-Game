@@ -24,6 +24,7 @@ var wish_dir : Vector3 = Vector3.ZERO
 var headbob_time : float = 0.0
 var time_since_last_footstep : float = 0.0
 
+var can_take_input : bool = true
 
 @onready var camera : Camera3D = %Camera3D
 
@@ -34,6 +35,8 @@ func _ready() -> void:
 		child.set_layer_mask_value(2, true) # world body 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if !can_take_input: return
+	
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("ui_cancel"):
@@ -54,6 +57,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func handle_input(delta : float) -> void:
+	if !can_take_input: return
 	#region SourceMovement
 	var input_dir : Vector2 = Input.get_vector("move_left","move_right", "move_forward", "move_backward").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
