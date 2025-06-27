@@ -4,7 +4,7 @@ class_name Torch3D
 
 var label : Label = UIManager.get_node("CanvasLayer/Battery")
 var can_use_torch : bool = true
-
+var battery_after_loss : int
 
 @export var battery : int = 4:
 	set(value):
@@ -21,6 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if battery <= 0: return
 		can_use_torch = false
 		battery = battery - 1
+		battery_after_loss = battery
 		light_energy = 3
 		var tween := get_tree().create_tween()
 		tween.tween_property(self, "light_energy", 0, 1)

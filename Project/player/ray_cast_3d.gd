@@ -6,8 +6,10 @@ var hit_obj : Interactable3D = null
 func _process(delta: float) -> void:
 	if is_colliding():
 		
-		var hitObj = get_collider()
 		
+		var hitObj = get_collider()
+		if hitObj.has_method("bat_interact") && Input.is_action_just_pressed("interact"):
+			hitObj.bat_interact()
 		if hitObj.has_method("box_interact") && Input.is_action_just_pressed("interact"):
 			hitObj.box_interact()
 		

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 UIManager="*res://autoloads/ui_manager.tscn"
 SFXManager="*res://autoloads/sfx_manager.tscn"
+Torch="*res://player/torch.gd"
 
 [display]
 

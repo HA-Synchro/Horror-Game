@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://genecn20vsi2"]
+[gd_scene load_steps=12 format=3 uid="uid://genecn20vsi2"]
 
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://interactables/door.tscn" id="3_1bvp3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cepw0v1nmqks0" path="res://assets/models/toy.blend" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://d1555ses8w06g" path="res://interactables/battery.tscn" id="8_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -159,6 +160,9 @@ transform = Transform3D(0.0237342, 0, -0.999718, 0, 1, 0, 0.999718, 0, 0.0237342
 
 [node name="toy" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(-0.200154, 0, 0.149794, 0, 0.25, 0, -0.149794, 0, -0.200154, -1.93323, -1.75492, 8.23161)
+
+[node name="Battery" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6394, -1.42517, 2.39316)
 
 [editable path="Lights/LightSwitch"]
 [editable path="Lights/LightSwitch3"]
