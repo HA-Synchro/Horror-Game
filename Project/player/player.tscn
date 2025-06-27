@@ -50,9 +50,12 @@ cull_mask = 1048573
 current = true
 far = 1000.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+[node name="Torch" type="SpotLight3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534744, -0.334327, -0.677766)
+light_energy = 0.0
 spot_range = 10.667
+spot_attenuation = 0.0
+script = ExtResource("3_g1dw6")
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, -0.54)
@@ -60,14 +63,13 @@ target_position = Vector3(0, -1.3, 0)
 collide_with_areas = true
 script = ExtResource("2_rkbax")
 
-[node name="Torch" type="Node3D" parent="Head/Camera3D"]
+[node name="TorchModel" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110359, -1.07135, 0)
-script = ExtResource("3_g1dw6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Head/Camera3D/Torch"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Head/Camera3D/TorchModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410385, 0.748641, -0.304999)
 size = Vector3(0.091156, 0.103027, 0.62262)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Head/Camera3D/Torch"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Head/Camera3D/TorchModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.393714, 0.743629, -0.608453)
 size = Vector3(0.185324, 0.177155, 0.0779114)
