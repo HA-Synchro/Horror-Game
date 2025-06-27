@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcvtvswxvpq6y"]
+[gd_scene load_steps=8 format=3 uid="uid://dcvtvswxvpq6y"]
 
 [ext_resource type="Script" uid="uid://bkh28wf5h2qxl" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bvu3tavyxxh3o" path="res://player/ray_cast_3d.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://b1b4tpgwwbm14" path="res://player/torch.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 radius = 0.570097
@@ -50,6 +51,7 @@ current = true
 far = 1000.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534744, -0.334327, -0.677766)
 spot_range = 10.667
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
@@ -57,3 +59,15 @@ transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 
 target_position = Vector3(0, -1.3, 0)
 collide_with_areas = true
 script = ExtResource("2_rkbax")
+
+[node name="Torch" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110359, -1.07135, 0)
+script = ExtResource("3_g1dw6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Head/Camera3D/Torch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410385, 0.748641, -0.304999)
+size = Vector3(0.091156, 0.103027, 0.62262)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Head/Camera3D/Torch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.393714, 0.743629, -0.608453)
+size = Vector3(0.185324, 0.177155, 0.0779114)
