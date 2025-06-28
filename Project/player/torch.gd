@@ -5,7 +5,6 @@ class_name Torch3D
 var label : Label = UIManager.get_node("CanvasLayer/Battery")
 var can_use_torch : bool = true
 
-
 @export var battery : int = 4:
 	set(value):
 		battery = value

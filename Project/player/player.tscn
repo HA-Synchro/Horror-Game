@@ -51,6 +51,7 @@ current = true
 far = 1000.0
 
 [node name="Torch" type="SpotLight3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534744, -0.334327, -0.677766)
 light_energy = 0.0
 spot_range = 10.667

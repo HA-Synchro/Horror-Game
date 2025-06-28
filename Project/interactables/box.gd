@@ -1,10 +1,12 @@
-extends StaticBody3D
+extends Interactable3D
+class_name Box3D
+
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var handle_open = false
-var can_interact = true
 
-func box_interact():
+
+func interact():
 	if can_interact:
 		can_interact = false
 		handle_open = !handle_open

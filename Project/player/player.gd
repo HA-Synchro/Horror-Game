@@ -27,9 +27,11 @@ var time_since_last_footstep : float = 0.0
 var can_take_input : bool = true
 
 @onready var camera : Camera3D = %Camera3D
+@onready var torch: Torch3D = %Torch
 
 
 func _ready() -> void:
+	GameManager.player_ref = self
 	for child in $Body.find_children("*", "VisualInstance3D"):
 		child.set_layer_mask_value(1, false)
 		child.set_layer_mask_value(2, true) # world body 
