@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://genecn20vsi2"]
+[gd_scene load_steps=14 format=3 uid="uid://genecn20vsi2"]
 
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://interactables/door.tscn" id="3_1bvp3"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://btp1maeiui1gx" path="res://interactables/battery_pickup.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://bigixaqqb0jnr" path="res://assets/models/m_toy.png" id="8_kek77"]
+[ext_resource type="ArrayMesh" uid="uid://dnwu2tojrgmg6" path="res://assets/models/toy.obj" id="9_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -25,6 +27,10 @@ fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_texture = ExtResource("8_kek77")
+texture_filter = 0
 
 [node name="Main" type="Node3D"]
 
@@ -123,8 +129,8 @@ omni_attenuation = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0372, 0.00444131, 0.781469)
 
 [node name="OmniLight3D" parent="Lights/LightSwitch/Interactable3D" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)
-omni_range = 6.83287
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 5.21935, 1.552)
+omni_range = 14.387
 
 [node name="LightSwitch3" parent="Lights" instance=ExtResource("3_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70891, 0.00444131, 4.79828)
@@ -159,6 +165,11 @@ transform = Transform3D(0.0237342, 0, -0.999718, 0, 1, 0, 0.999718, 0, 0.0237342
 
 [node name="BatteryPickup" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5823, -1.00656, 8.48332)
+
+[node name="Toy" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.998793, 0, 0.0491285, 0, 1, 0, -0.0491285, 0, 0.998793, -6.91115, -1.45287, -2.93502)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = ExtResource("9_4c57u")
 
 [editable path="Lights/LightSwitch"]
 [editable path="Lights/LightSwitch3"]
