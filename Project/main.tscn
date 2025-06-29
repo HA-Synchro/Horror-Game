@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://btp1maeiui1gx" path="res://interactables/battery_pickup.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://bigixaqqb0jnr" path="res://assets/models/m_toy.png" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://bigixaqqb0jnr" path="res://assets/models/Toy Base Color.png" id="8_kek77"]
 [ext_resource type="ArrayMesh" uid="uid://dnwu2tojrgmg6" path="res://assets/models/toy.obj" id="9_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
