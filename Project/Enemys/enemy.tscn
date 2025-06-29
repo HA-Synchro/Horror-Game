@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bioi8ixjuas8l"]
+
+[ext_resource type="Script" uid="uid://01ml2eoyllnc" path="res://Enemys/enemy.gd" id="1_rqpjp"]
+[ext_resource type="Script" uid="uid://dr82sn87e6d8s" path="res://Enemys/Enemy_raycast.gd" id="2_rbcdm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro8vv"]
+albedo_color = Color(0.290196, 1, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rqpjp"]
+material = SubResource("StandardMaterial3D_ro8vv")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbcdm"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_rqpjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_rqpjp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_rbcdm")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-6.55671e-08, 1.5, 6.55671e-08, 0, -6.55671e-08, 1.5, 1.5, 6.55671e-08, 2.86603e-15, -0.485774, 1.53488, -0.0207092)
+script = ExtResource("2_rbcdm")

@@ -8,12 +8,19 @@ func _process(delta: float) -> void:
 		
 		
 		var hitObj = get_collider()
+		if hitObj.has_method("bat_interact"):
+			UIManager.show_crosshair()
+		else:
+			UIManager.hide_crosshair()
 		if hitObj.has_method("bat_interact") && Input.is_action_just_pressed("interact"):
 			hitObj.bat_interact()
+		
+		if hitObj.has_method("box_interact"):
+			UIManager.show_crosshair()
+		else:
+			UIManager.hide_crosshair()
 		if hitObj.has_method("box_interact") && Input.is_action_just_pressed("interact"):
 			hitObj.box_interact()
-		
-		
 		
 		if  not (get_collider() is Interactable3D):
 			if hit_obj:
