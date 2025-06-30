@@ -7,6 +7,6 @@ func _process(delta: float) -> void:
 		hitObj = get_collider()
 		if hitObj.has_method("get_move_speed"):
 			print("PLayer detected")
-		if hitObj.has_method("interact"):
-			hitObj.interact()
+		if hitObj.has_method("AI_door_Interact"):
+			hitObj.AI_door_Interact()
 		

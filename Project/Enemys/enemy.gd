@@ -40,6 +40,9 @@ func _physics_process(delta: float) -> void:
 	var dir      := (next_pos - global_transform.origin).normalized()
 	velocity     = dir * SPEED
 	move_and_slide()
+	
+	if dir.length_squared() > 0:
+		look_at(global_transform.origin + dir, Vector3.UP)
 
 
 
