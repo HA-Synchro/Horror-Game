@@ -1,14 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://genecn20vsi2"]
+[gd_scene load_steps=15 format=3 uid="uid://genecn20vsi2"]
 
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://crj7e36h567i7" path="res://main.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://interactables/door.tscn" id="3_1bvp3"]
 [ext_resource type="Material" uid="uid://cmktivbetmj47" path="res://resources/materials/kenny_material_dark_floor.tres" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dka7047xblyt5" path="res://interactables/light_switch.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bioi8ixjuas8l" path="res://Enemys/enemy.tscn" id="4_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
-[ext_resource type="PackedScene" uid="uid://btp1maeiui1gx" path="res://interactables/battery_pickup.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://bigixaqqb0jnr" path="res://assets/models/Toy Base Color.png" id="8_kek77"]
-[ext_resource type="ArrayMesh" uid="uid://dnwu2tojrgmg6" path="res://assets/models/toy.obj" id="9_4c57u"]
+
+[ext_resource type="PackedScene" uid="uid://cepw0v1nmqks0" path="res://assets/models/toy.blend" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://d1555ses8w06g" path="res://interactables/battery.tscn" id="8_5vw27"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5vw27"]
+vertices = PackedVector3Array(2.75237, 10.1, -6.03072, 1.00237, 10.1, -6.03072, 1.00237, 10.1, 11.2193, 3.00237, 10.1, 11.4693, 3.00237, 10.1, 24.7193, 27.2524, 10.1, 24.7193, 3.00237, 10.1, -7.28072, 27.2524, 10.1, -7.28072, 5.25237, -1.9, 6.71928, 5.25237, -1.9, 8.46928, 6.25237, -1.9, 8.71928, 21.0024, -1.9, 12.2193, 23.2524, -1.9, 12.2193, 6.25237, -1.9, 6.46928, 6.25237, -1.9, 12.2193, 21.2524, -1.9, 13.4693, 23.0024, -1.9, 13.4693, 25.0024, -1.9, 12.2193, 25.0024, -1.9, -6.53072, 6.25237, -1.9, -6.53072, -21.7476, 10.1, -6.03072, -21.7476, 10.1, 11.2193, -10.2476, -1.9, 1.96928, -10.2476, -1.9, 3.71928, -9.49763, -1.9, 3.96928, 4.25237, -1.9, 6.46928, -9.49763, -1.9, 1.71928, 4.25237, -1.9, 8.71928, -9.49763, -1.9, 9.46928, 4.25237, -1.9, -4.28072, -9.49763, -1.9, -4.28072, 4.25237, -1.9, 9.46928, -10.9976, -1.9, 1.71928, -19.7476, -1.9, 0.719278, -10.9976, -1.9, 3.96928, -19.7476, -1.9, 9.46928, -10.9976, -1.9, 9.46928, -10.9976, -1.9, 0.719278, 21.0024, -1.9, 14.9693, 23.2524, -1.9, 14.9693, 6.25237, -1.9, 14.9693, 6.25237, -1.9, 23.7193, 25.0024, -1.9, 23.7193, 25.0024, -1.9, 14.9693)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 13, 9), PackedInt32Array(9, 13, 10), PackedInt32Array(10, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(11, 14, 10), PackedInt32Array(15, 11, 16), PackedInt32Array(16, 11, 12), PackedInt32Array(12, 13, 17), PackedInt32Array(17, 13, 19), PackedInt32Array(17, 19, 18), PackedInt32Array(21, 20, 2), PackedInt32Array(2, 20, 1), PackedInt32Array(22, 26, 23), PackedInt32Array(23, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(9, 27, 8), PackedInt32Array(8, 27, 25), PackedInt32Array(25, 27, 28), PackedInt32Array(25, 28, 24), PackedInt32Array(30, 29, 26), PackedInt32Array(26, 29, 25), PackedInt32Array(27, 31, 28), PackedInt32Array(23, 34, 22), PackedInt32Array(22, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(36, 35, 34), PackedInt32Array(34, 35, 33), PackedInt32Array(33, 37, 32), PackedInt32Array(16, 39, 15), PackedInt32Array(15, 39, 38), PackedInt32Array(40, 38, 41), PackedInt32Array(41, 38, 42), PackedInt32Array(39, 43, 42), PackedInt32Array(38, 39, 42)]
+cell_height = 0.05
+agent_height = 0.5
+agent_radius = 0.3
+agent_max_climb = 0.05
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -33,6 +43,68 @@ albedo_texture = ExtResource("8_kek77")
 texture_filter = 0
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_kek77")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_5vw27")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130489, 0.108063, -0.0903015)
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1119, -0.108063, 8.80958)
+use_collision = true
+size = Vector3(25, 20, 33)
+material = ExtResource("3_h2yge")
+
+[node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87812, -0.108063, 2.68985)
+use_collision = true
+size = Vector3(25, 20, 18)
+material = ExtResource("3_h2yge")
+
+[node name="Negative" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67708, 1.91592, 2.80539)
+operation = 2
+size = Vector3(15, 8, 15)
+material = ExtResource("3_h2yge")
+
+[node name="Negative3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5893, 1.91592, 3)
+operation = 2
+size = Vector3(20, 8, 20)
+material = ExtResource("3_h2yge")
+
+[node name="Negative4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5893, 1.91592, 19.3624)
+operation = 2
+size = Vector3(20, 8, 10)
+material = ExtResource("3_h2yge")
+
+[node name="Negative2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5733, 1.91592, 5.09252)
+operation = 2
+size = Vector3(10, 8, 10)
+material = ExtResource("3_h2yge")
+
+[node name="DoorNegative" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3861, -0.0691242, 2.99604)
+operation = 2
+size = Vector3(0.5, 4, 3)
+material = ExtResource("3_h2yge")
+
+[node name="DoorNegative2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26897, -0.0691242, 7.64648)
+operation = 2
+size = Vector3(1, 4, 3)
+material = ExtResource("3_h2yge")
+
+[node name="DoorNegative3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.9503, -0.0691242, 13.7203)
+operation = 2
+size = Vector3(2, 4, 3)
+material = ExtResource("3_h2yge")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")
@@ -60,63 +132,8 @@ render_target_update_mode = 4
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133419, 1.54097, -0.00816345)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130489, 0.108063, -0.0903015)
-use_collision = true
-
-[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1119, -0.108063, 8.80958)
-use_collision = true
-size = Vector3(25, 20, 33)
-material = ExtResource("3_h2yge")
-
-[node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87812, -0.108063, 2.68985)
-use_collision = true
-size = Vector3(25, 20, 18)
-material = ExtResource("3_h2yge")
-
-[node name="Negative" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67708, 1.91592, 2.80539)
-operation = 2
-size = Vector3(15, 8, 15)
-material = ExtResource("3_h2yge")
-
-[node name="Negative3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5893, 1.91592, 3)
-operation = 2
-size = Vector3(20, 8, 20)
-material = ExtResource("3_h2yge")
-
-[node name="Negative4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5893, 1.91592, 19.3624)
-operation = 2
-size = Vector3(20, 8, 10)
-material = ExtResource("3_h2yge")
-
-[node name="Negative2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5733, 1.91592, 5.09252)
-operation = 2
-size = Vector3(10, 8, 10)
-material = ExtResource("3_h2yge")
-
-[node name="DoorNegative" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3861, -0.0691242, 2.99604)
-operation = 2
-size = Vector3(0.5, 4, 3)
-material = ExtResource("3_h2yge")
-
-[node name="DoorNegative2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26897, -0.0691242, 7.64648)
-operation = 2
-size = Vector3(1, 4, 3)
-material = ExtResource("3_h2yge")
-
-[node name="DoorNegative3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.9503, -0.0691242, 13.7203)
-operation = 2
-size = Vector3(2, 4, 3)
-material = ExtResource("3_h2yge")
+[node name="Enemy" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7162, -1.97602, -3.19644)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -163,8 +180,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.601
 [node name="Drawer" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.0237342, 0, -0.999718, 0, 1, 0, 0.999718, 0, 0.0237342, -15.3246, -1.32602, 1.6868)
 
-[node name="BatteryPickup" parent="." instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5823, -1.00656, 8.48332)
+[node name="toy" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.200154, 0, 0.149794, 0, 0.25, 0, -0.149794, 0, -0.200154, -1.93323, -1.75492, 8.23161)
+
+[node name="Battery" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7052, -1.03585, 8.35657)
 
 [node name="Toy" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.998793, 0, 0.0491285, 0, 1, 0, -0.0491285, 0, 0.998793, -6.91115, -1.45287, -2.93502)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1555ses8w06g"]
+
+[ext_resource type="Script" uid="uid://4068c8scldna" path="res://interactables/battery.gd" id="1_gk7vu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_giw0a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gk7vu"]
+
+[node name="Battery" type="Node3D"]
+
+[node name="Battery" type="StaticBody3D" parent="."]
+transform = Transform3D(0.170318, 0, 0, 0, 0.163942, 0, 0, 0, 0.523087, 0, 0.1, 0)
+script = ExtResource("1_gk7vu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battery"]
+shape = SubResource("BoxShape3D_giw0a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Battery"]
+mesh = SubResource("BoxMesh_gk7vu")
