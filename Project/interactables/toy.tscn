@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgfs7cwd2me60"]
+
+[ext_resource type="Script" uid="uid://dvad25kk6si58" path="res://interactables/interactable.gd" id="1_jbois"]
+
+[node name="Toy" type="Node3D"]
+
+[node name="Interactable3D" type="StaticBody3D" parent="."]
+script = ExtResource("1_jbois")
+metadata/_custom_type_script = "uid://dvad25kk6si58"

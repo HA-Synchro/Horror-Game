@@ -1,7 +1,10 @@
 extends CharacterBody3D
 class_name Player3D
 
-
+@onready var camera : Camera3D = %Camera3D
+@onready var torch: Torch3D = %Torch
+@onready var r_hand: Node3D = %RHand
+@onready var def_r_hand_pos : Vector3 = r_hand.position
 
 #region ExportVariables
 @export_group("Movement")
@@ -13,21 +16,26 @@ class_name Player3D
 @export var ground_friction : float = 6.0
 
 @export_group("CameraEffects")
-@export var headbob_move_amount = 0.12
-@export var headbob_frequency = 1.2
+## DEPRECATED VARIABLES
+#@export var headbob_move_amount = 0.12
+#@export var headbob_frequency = 1.2
+@export var camera_rotation_amount : float = 0.04
 
+@export_group("HandSwayEffects")
+@export var hand_sway_amount : float = 2
+@export var hand_rotation_amount : float = 0.1
 
 
 #endregion
 
 var wish_dir : Vector3 = Vector3.ZERO
+var input_dir : Vector2
 var headbob_time : float = 0.0
 var time_since_last_footstep : float = 0.0
 
 var can_take_input : bool = true
+var mouse_input : Vector2
 
-@onready var camera : Camera3D = %Camera3D
-@onready var torch: Torch3D = %Torch
 
 
 func _ready() -> void:
@@ -46,22 +54,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			self.rotation.y += -event.relative.x * look_sensitivity
+			mouse_input = event.relative
+			self.rotation.y += -mouse_input.x * look_sensitivity
 			# self.rotation.y = lerp(self.rotation.y, self.rotation.y + -event.relative.x * look_sensitivity, .8)
-			camera.rotation.x += (-event.relative.y * look_sensitivity)
+			camera.rotation.x += (-mouse_input.y * look_sensitivity)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
 	apply_gravity(delta)
-	headbob_effet(delta)
 	footsteps(delta)
 	move_and_slide()
+	camera_tilt(delta)
+	hand_tilt(delta)
+	hand_sway(delta)
+	bob_effect(r_hand, def_r_hand_pos, delta)
+	bob_effect(camera, Vector3(0,0,0), delta)
 
 func handle_input(delta : float) -> void:
 	if !can_take_input: return
 	#region SourceMovement
-	var input_dir : Vector2 = Input.get_vector("move_left","move_right", "move_forward", "move_backward").normalized()
+	input_dir = Input.get_vector("move_left","move_right", "move_forward", "move_backward").normalized()
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
 	
 	var cur_speed_in_wish_dir : float = self.velocity.dot(wish_dir)
@@ -91,14 +104,51 @@ func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-func headbob_effet(delta: float) -> void:
-	headbob_time += delta * self.velocity.length()
-	camera.transform.origin = Vector3(
-		cos(headbob_time * headbob_frequency * 0.5) * headbob_move_amount,
-		sin(headbob_time * headbob_frequency) * headbob_move_amount,
-		0
-	)
 
+## DEPRECATED Function
+#func headbob_effet(delta: float) -> void:
+	#headbob_time += delta * self.velocity.length()
+	#camera.transform.origin = Vector3(
+		#cos(headbob_time * headbob_frequency * 0.5) * headbob_move_amount,
+		#sin(headbob_time * headbob_frequency) * headbob_move_amount,
+		#0
+	#)
+
+
+
+
+#region EFFECTS
+
+# Visuals
+# --------------------------------------------------------------------------------------------------
+func camera_tilt(delta : float) -> void:
+	if camera:
+		camera.rotation.z = lerp(camera.rotation.z, -input_dir.x * camera_rotation_amount, 10 * delta)
+
+func hand_tilt(delta : float) -> void:
+	if %RHand:
+		%RHand.rotation.z = lerp(%RHand.rotation.z, -input_dir.x * hand_rotation_amount, 10 * delta)
+
+func hand_sway(delta : float) -> void:
+	mouse_input = lerp(mouse_input, Vector2.ZERO, 10 * delta)
+	r_hand.rotation.x = lerp(r_hand.rotation.x, mouse_input.y * hand_rotation_amount, 10 * delta)
+	r_hand.rotation.y = lerp(r_hand.rotation.y, mouse_input.x * hand_rotation_amount, 10 * delta)
+
+## Takes a node and adds bob effect to it
+func bob_effect(node : Node3D, def_node_pos : Vector3, delta : float,
+ bob_amount : float = 0.05, bob_freq : float = 0.01
+) -> void:
+	if node:
+		if velocity.length() > 0:
+			node.position.y = lerp(node.position.y, def_node_pos.y + sin(Time.get_ticks_msec() * bob_freq) * bob_amount, 10 * delta)
+			node.position.x = lerp(node.position.x, def_node_pos.x + sin(Time.get_ticks_msec() * bob_freq * 0.5) * bob_amount, 10 * delta)
+			
+		else:
+			node.position.y = lerp(node.position.y, def_node_pos.y, 10 * delta)
+			node.position.x = lerp(node.position.x, def_node_pos.x, 10 * delta)
+
+# Sounds
+# --------------------------------------------------------------------------------------------------
 #TODO: Add footsteps
 func footsteps(delta : float) -> void:
 	if velocity.length() < 1: return
@@ -107,3 +157,4 @@ func footsteps(delta : float) -> void:
 	if time_since_last_footstep * 10 > velocity.length():
 		SFXManager.play_FX_3D(SFXManager.footsteps_sfx_array.pick_random(), self.global_position, 12, 1, 1)
 		time_since_last_footstep = 0
+#endregion
