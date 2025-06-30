@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://genecn20vsi2"]
+[gd_scene load_steps=15 format=3 uid="uid://genecn20vsi2"]
 
 [ext_resource type="PackedScene" uid="uid://dcvtvswxvpq6y" path="res://player/player.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://crj7e36h567i7" path="res://main.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://da1i6blxbhlkk" path="res://interactables/door.tscn" id="3_1bvp3"]
 [ext_resource type="Material" uid="uid://cmktivbetmj47" path="res://resources/materials/kenny_material_dark_floor.tres" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dka7047xblyt5" path="res://interactables/light_switch.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bioi8ixjuas8l" path="res://Enemys/enemy.tscn" id="4_4c57u"]
+[ext_resource type="PackedScene" uid="uid://bioi8ixjuas8l" path="res://enemies/enemy.tscn" id="4_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://btp1maeiui1gx" path="res://interactables/battery_pickup.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cgfs7cwd2me60" path="res://interactables/interactable_toy.tscn" id="10_4c57u"]
@@ -39,7 +38,6 @@ fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_kek77")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5vw27")
