@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dts7s1ibv1bmq" path="res://assets/models/m_battery.png" id="2_g2kgg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okr0b"]
-size = Vector3(0.538147, 0.299194, 0.328545)
+size = Vector3(0.538, 0.2, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxli8"]
 albedo_texture = ExtResource("2_g2kgg")
