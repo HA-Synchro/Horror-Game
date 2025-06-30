@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 			if hit_obj:
 				hit_obj.on_ray_cast_uncollide()
 				hit_obj = null
+			UIManager.hide_crosshair()
 			return
 		
 		# if alreay an object in focus
