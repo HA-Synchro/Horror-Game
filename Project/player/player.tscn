@@ -69,6 +69,10 @@ size = Vector3(0.091156, 0.103027, 0.62262)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.608)
 size = Vector3(0.185324, 0.177155, 0.0779114)
 
+[node name="LHand" type="Node3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.628, -0.552, -0.302)
+
 [node name="Torch" type="SpotLight3D" parent="Head/Camera3D"]
 unique_name_in_owner = true
 light_energy = 0.0

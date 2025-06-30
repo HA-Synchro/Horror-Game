@@ -4,7 +4,10 @@ class_name Player3D
 @onready var camera : Camera3D = %Camera3D
 @onready var torch: Torch3D = %Torch
 @onready var r_hand: Node3D = %RHand
+@onready var l_hand: Node3D = %LHand
+
 @onready var def_r_hand_pos : Vector3 = r_hand.position
+@onready var def_l_hand_pos : Vector3 = l_hand.position
 
 #region ExportVariables
 @export_group("Movement")
@@ -63,13 +66,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
 	apply_gravity(delta)
-	footsteps(delta)
 	move_and_slide()
-	camera_tilt(delta)
-	hand_tilt(delta)
-	hand_sway(delta)
-	bob_effect(r_hand, def_r_hand_pos, delta)
-	bob_effect(camera, Vector3(0,0,0), delta)
+	
+	
+	call_effects(delta)
+
 
 func handle_input(delta : float) -> void:
 	if !can_take_input: return
@@ -119,20 +120,34 @@ func apply_gravity(delta: float) -> void:
 
 #region EFFECTS
 
+func call_effects(delta : float) -> void:
+	footsteps(delta)
+	
+	camera_tilt(delta)
+	hand_tilt(l_hand, delta)
+	hand_tilt(r_hand, delta)
+	
+	hand_sway(r_hand, delta)
+	hand_sway(l_hand, delta)
+	
+	bob_effect(r_hand, def_r_hand_pos, delta)
+	bob_effect(l_hand, def_l_hand_pos, delta)
+	bob_effect(camera, Vector3(0,0,0), delta)
 # Visuals
-# --------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------
+
 func camera_tilt(delta : float) -> void:
 	if camera:
 		camera.rotation.z = lerp(camera.rotation.z, -input_dir.x * camera_rotation_amount, 10 * delta)
 
-func hand_tilt(delta : float) -> void:
-	if %RHand:
-		%RHand.rotation.z = lerp(%RHand.rotation.z, -input_dir.x * hand_rotation_amount, 10 * delta)
+func hand_tilt(hand: Node3D, delta : float) -> void:
+	if hand:
+		hand.rotation.z = lerp(hand.rotation.z, -input_dir.x * hand_rotation_amount, 10 * delta)
 
-func hand_sway(delta : float) -> void:
+func hand_sway(hand: Node3D, delta : float) -> void:
 	mouse_input = lerp(mouse_input, Vector2.ZERO, 10 * delta)
-	r_hand.rotation.x = lerp(r_hand.rotation.x, mouse_input.y * hand_rotation_amount, 10 * delta)
-	r_hand.rotation.y = lerp(r_hand.rotation.y, mouse_input.x * hand_rotation_amount, 10 * delta)
+	hand.rotation.x = lerp(hand.rotation.x, mouse_input.y * hand_rotation_amount, 10 * delta)
+	hand.rotation.y = lerp(hand.rotation.y, mouse_input.x * hand_rotation_amount, 10 * delta)
 
 ## Takes a node and adds bob effect to it
 func bob_effect(node : Node3D, def_node_pos : Vector3, delta : float,
