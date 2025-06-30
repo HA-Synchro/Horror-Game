@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func bat_interact():
-	if Torch.battery < 4:
-		Torch.battery += 4 - Torch.battery_after_loss
-	battery.visible = false
+#func bat_interact():
+	#if Torch.battery < 4:
+		#Torch.battery += 4 - Torch.battery_after_loss
+	#battery.visible = false
