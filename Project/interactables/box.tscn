@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfls01awn1x2u"]
+[gd_scene load_steps=10 format=3 uid="uid://cfls01awn1x2u"]
 
 [ext_resource type="Script" uid="uid://cjntx43rewpw8" path="res://interactables/box.gd" id="1_xy684"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pmmft"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ypa1x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xy684"]
+size = Vector3(1, 0.1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xy684"]
 size = Vector3(1, 0.1, 1)
@@ -82,7 +85,7 @@ script = ExtResource("1_xy684")
 metadata/_custom_type_script = "uid://dvad25kk6si58"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Handle/Interactable"]
-shape = SubResource("BoxShape3D_pmmft")
+shape = SubResource("BoxShape3D_xy684")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Handle/Interactable"]
 mesh = SubResource("BoxMesh_xy684")

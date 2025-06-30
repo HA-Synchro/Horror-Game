@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://crl808wlxiqo4" path="res://interactables/drawer.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bioi8ixjuas8l" path="res://Enemys/enemy.tscn" id="4_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cfls01awn1x2u" path="res://interactables/box.tscn" id="4_7mycd"]
+
 [ext_resource type="PackedScene" uid="uid://cepw0v1nmqks0" path="res://assets/models/toy.blend" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://d1555ses8w06g" path="res://interactables/battery.tscn" id="8_5vw27"]
 
@@ -36,6 +37,10 @@ fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_texture = ExtResource("8_kek77")
+texture_filter = 0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_kek77")
@@ -141,8 +146,8 @@ omni_attenuation = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0372, 0.00444131, 0.781469)
 
 [node name="OmniLight3D" parent="Lights/LightSwitch/Interactable3D" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 0.83827, -3.79978)
-omni_range = 6.83287
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11692, 5.21935, 1.552)
+omni_range = 14.387
 
 [node name="LightSwitch3" parent="Lights" instance=ExtResource("3_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70891, 0.00444131, 4.79828)
@@ -180,6 +185,11 @@ transform = Transform3D(-0.200154, 0, 0.149794, 0, 0.25, 0, -0.149794, 0, -0.200
 
 [node name="Battery" parent="." instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7052, -1.03585, 8.35657)
+
+[node name="Toy" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.998793, 0, 0.0491285, 0, 1, 0, -0.0491285, 0, 0.998793, -6.91115, -1.45287, -2.93502)
+material_override = SubResource("StandardMaterial3D_efxa6")
+mesh = ExtResource("9_4c57u")
 
 [editable path="Lights/LightSwitch"]
 [editable path="Lights/LightSwitch3"]

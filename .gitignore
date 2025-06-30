@@ -2,6 +2,10 @@
 .godot/
 .nomedia
 
+
+# jetBrains IDE (useless)
+.idea/
+
 # Godot-specific ignores
 .import/
 export.cfg
