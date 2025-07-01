@@ -21,12 +21,14 @@ func interact():
 		
 		if door_open:
 			#tween.tween_property(self, "rotation_degrees:y",0,1)
+			door_open = false
 			animation_player.play_backwards("open")
+			
 		else:
 			#tween.tween_property(self, "rotation_degrees:y",-90,1)
+			door_open = true
 			animation_player.play("open")
 		
-		door_open = !door_open
 		
 		#await tween.finished
 		#tween.kill()

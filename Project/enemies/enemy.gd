@@ -6,10 +6,13 @@ class_name Enemy3D
 @onready var interact_ray_cast: RayCast3D = $InteractRayCast
 
 const SPEED            : float = 2.5     
-const CHASE_RANGE      : float = 12.0   
+const CHASE_RANGE      : float = 24.0
 const WANDER_RADIUS    : float = 6.0     
 const WANDER_COOLDOWN  : float = 2.0     
  
+
+var player_last_position : Vector3
+
 var _wander_t   : float = 0.0              
 var can_move : bool = true
 
@@ -35,13 +38,18 @@ func _physics_process(delta: float) -> void:
 
 func get_new_target_position(delta: float):
 	if is_behind_wall():
+		# GETS LAST DOOR
 		if !GameManager.player_ref.last_used_door: return
 		nav.set_target_position(GameManager.player_ref.last_used_door.mesh_instance_3d.global_position)
 		GameManager.player_ref.last_used_door = null
+		
+		# Gets last player position
+		# nav.set_target_position(player_last_position)
 	else:
-		var to_player := GameManager.player_ref.global_position - global_transform.origin
+		player_last_position= GameManager.player_ref.global_position
+		var to_player := player_last_position - global_transform.origin
 		if to_player.length_squared() <= CHASE_RANGE * CHASE_RANGE:
-			nav.set_target_position(GameManager.player_ref.global_position)
+			nav.set_target_position(player_last_position)
 			_wander_t = 0.0
 		else:
 			_wander_t -= delta
