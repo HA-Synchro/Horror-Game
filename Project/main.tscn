@@ -12,12 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://dcdvlb1c5443h" path="res://interactables/cupboard.tscn" id="11_efxa6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5vw27"]
-vertices = PackedVector3Array(2.75237, 10.1, -6.03072, 1.00237, 10.1, -6.03072, 1.00237, 10.1, 11.2193, 3.00237, 10.1, 11.4693, 3.00237, 10.1, 24.7193, 27.2524, 10.1, 24.7193, 3.00237, 10.1, -7.28072, 27.2524, 10.1, -7.28072, 5.25237, -1.9, 6.71928, 5.25237, -1.9, 8.46928, 6.25237, -1.9, 8.71928, 21.0024, -1.9, 12.2193, 23.2524, -1.9, 12.2193, 6.25237, -1.9, 6.46928, 6.25237, -1.9, 12.2193, 21.2524, -1.9, 13.4693, 23.0024, -1.9, 13.4693, 25.0024, -1.9, 12.2193, 25.0024, -1.9, -6.53072, 6.25237, -1.9, -6.53072, -21.7476, 10.1, -6.03072, -21.7476, 10.1, 11.2193, -10.2476, -1.9, 1.96928, -10.2476, -1.9, 3.71928, -9.49763, -1.9, 3.96928, 4.25237, -1.9, 6.46928, -9.49763, -1.9, 1.71928, 4.25237, -1.9, 8.71928, -9.49763, -1.9, 9.46928, 4.25237, -1.9, -4.28072, -9.49763, -1.9, -4.28072, 4.25237, -1.9, 9.46928, -10.9976, -1.9, 1.71928, -19.7476, -1.9, 0.719278, -10.9976, -1.9, 3.96928, -19.7476, -1.9, 9.46928, -10.9976, -1.9, 9.46928, -10.9976, -1.9, 0.719278, 21.0024, -1.9, 14.9693, 23.2524, -1.9, 14.9693, 6.25237, -1.9, 14.9693, 6.25237, -1.9, 23.7193, 25.0024, -1.9, 23.7193, 25.0024, -1.9, 14.9693)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 13, 9), PackedInt32Array(9, 13, 10), PackedInt32Array(10, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(11, 14, 10), PackedInt32Array(15, 11, 16), PackedInt32Array(16, 11, 12), PackedInt32Array(12, 13, 17), PackedInt32Array(17, 13, 19), PackedInt32Array(17, 19, 18), PackedInt32Array(21, 20, 2), PackedInt32Array(2, 20, 1), PackedInt32Array(22, 26, 23), PackedInt32Array(23, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(9, 27, 8), PackedInt32Array(8, 27, 25), PackedInt32Array(25, 27, 28), PackedInt32Array(25, 28, 24), PackedInt32Array(30, 29, 26), PackedInt32Array(26, 29, 25), PackedInt32Array(27, 31, 28), PackedInt32Array(23, 34, 22), PackedInt32Array(22, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(36, 35, 34), PackedInt32Array(34, 35, 33), PackedInt32Array(33, 37, 32), PackedInt32Array(16, 39, 15), PackedInt32Array(15, 39, 38), PackedInt32Array(40, 38, 41), PackedInt32Array(41, 38, 42), PackedInt32Array(39, 43, 42), PackedInt32Array(38, 39, 42)]
+vertices = PackedVector3Array(2.75237, 10.1, -6.03072, 1.00237, 10.1, -6.03072, 1.00237, 10.1, 11.2193, 3.00237, 10.1, 11.4693, 3.00237, 10.1, -7.28072, 3.00237, 10.1, 24.7193, 27.2524, 10.1, 24.7193, 27.2524, 10.1, -7.28072, 21.0024, -1.9, 12.2193, 21.2524, -1.9, 12.7193, 25.0024, -1.9, 12.2193, 25.0024, -1.9, -6.53072, 6.25237, -1.9, -6.53072, 6.25237, -1.9, 12.2193, -21.7476, 10.1, -6.03072, -21.7476, 10.1, 11.2193, 4.25237, -1.9, 9.46928, 4.50237, -1.9, 8.71928, 4.25237, -1.9, -4.28072, -9.49763, -1.9, -4.28072, -9.49763, -1.9, 9.46928, -19.7476, -1.9, 0.719278, -19.7476, -1.9, 9.46928, -10.9976, -1.9, 9.46928, -10.9976, -1.9, 0.719278, 25.0024, -1.9, 14.9693, 21.2524, -1.9, 14.4693, 21.0024, -1.9, 14.9693, 25.0024, -1.9, 23.7193, 6.25237, -1.9, 23.7193, 6.25237, -1.9, 14.9693)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 0), PackedInt32Array(3, 0, 4), PackedInt32Array(6, 5, 3), PackedInt32Array(7, 6, 3), PackedInt32Array(4, 7, 3), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 13, 12), PackedInt32Array(11, 8, 12), PackedInt32Array(14, 1, 2), PackedInt32Array(15, 14, 2), PackedInt32Array(18, 17, 16), PackedInt32Array(16, 20, 19), PackedInt32Array(18, 16, 19), PackedInt32Array(23, 22, 21), PackedInt32Array(24, 23, 21), PackedInt32Array(27, 26, 25), PackedInt32Array(27, 25, 28), PackedInt32Array(27, 28, 29), PackedInt32Array(27, 29, 30)]
 cell_height = 0.05
 agent_height = 0.5
 agent_radius = 0.3
 agent_max_climb = 0.05
+vertices_per_polygon = 3.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -39,7 +40,7 @@ fog_density = 1.0
 
 [node name="Main" type="Node3D"]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["NavigationRegion"]]
 navigation_mesh = SubResource("NavigationMesh_5vw27")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
@@ -100,6 +101,17 @@ operation = 2
 size = Vector3(2, 4, 3)
 material = ExtResource("3_h2yge")
 
+[node name="Doors" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Door" parent="NavigationRegion3D/Doors" instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3278, -2.07094, 1.40024)
+
+[node name="Door2" parent="NavigationRegion3D/Doors" instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29247, -2.07094, 5.97064)
+
+[node name="Door3" parent="NavigationRegion3D/Doors" instance=ExtResource("3_1bvp3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.6016, -2.07094, 13.6415)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")
 
@@ -126,7 +138,7 @@ render_target_update_mode = 4
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133419, 1.54097, -0.00816345)
 
-[node name="Enemy" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_4c57u")]
+[node name="Enemy" parent="SubViewportContainer/SubViewport" groups=["Enemies"] instance=ExtResource("4_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7162, -1.97602, -3.19644)
 
 [node name="Lights" type="Node3D" parent="."]
@@ -159,17 +171,6 @@ omni_range = 6.83287
 
 [node name="Box" parent="Lights" instance=ExtResource("4_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5688, -1.47602, 8.25122)
-
-[node name="Doors" type="Node3D" parent="."]
-
-[node name="Door" parent="Doors" instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3278, -2.07094, 1.40024)
-
-[node name="Door2" parent="Doors" instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29247, -2.07094, 5.97064)
-
-[node name="Door3" parent="Doors" instance=ExtResource("3_1bvp3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.6016, -2.07094, 13.6415)
 
 [node name="Drawer" parent="." instance=ExtResource("4_1bvp3")]
 transform = Transform3D(0.0237342, 0, -0.999718, 0, 1, 0, 0.999718, 0, 0.0237342, -15.3246, -1.32602, 1.6868)

@@ -6,7 +6,6 @@ var hit_obj : Interactable3D = null
 func _process(delta: float) -> void:
 	if is_colliding():
 		
-		var hitObj = get_collider()
 		
 		## SHOBZ: THIS ISNT THE RIGHT WAY TO DO THIS
 		# if we decide to use this method [your current method], we will have to create multiple interact functions for 
