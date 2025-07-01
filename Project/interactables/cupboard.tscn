@@ -16,6 +16,8 @@ subdivide_width = 1
 [node name="Cupboard" type="Node3D"]
 
 [node name="Interactable3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ws3vq")
 metadata/_custom_type_script = "uid://dvad25kk6si58"
 
@@ -27,3 +29,7 @@ mesh = SubResource("BoxMesh_smwup")
 
 [node name="Toy" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.959292, 0)
+
+[node name="ToySpawnLocation" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980985, -0.0833732, 0)
+gizmo_extents = 1.35

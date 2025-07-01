@@ -6,13 +6,14 @@ var is_focused : bool = false
 var can_interact : bool = true
 
 
-func _unhandled_input(event: InputEvent) -> void:
+
+func _unhandled_input(_event: InputEvent) -> void:
 	if is_focused:
 		if Input.is_action_just_pressed("interact"):
 			print("Interacted with object: %s" % self)
 			interact()
 
-func on_ray_cast_collide(label_pos : Vector3) -> void:
+func on_ray_cast_collide() -> void:
 	if !can_interact: 
 		on_ray_cast_uncollide()
 		return

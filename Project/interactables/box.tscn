@@ -81,6 +81,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.090131, 0.46964, -0.504863
 
 [node name="Interactable" type="StaticBody3D" parent="Handle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.090131, 0.1, 0.509955)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_xy684")
 metadata/_custom_type_script = "uid://dvad25kk6si58"
 

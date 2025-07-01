@@ -9,15 +9,15 @@ const WANDER_RADIUS    : float = 6.0
 const WANDER_COOLDOWN  : float = 2.0     
  
 var _wander_t   : float = 0.0              
-
+var can_move : bool = true
 
 func _ready() -> void:
 	randomize()                 
-	add_to_group("enemies")     
+	add_to_group("Enemies")     
 	_pick_new_wander_point()     
 
 func _physics_process(delta: float) -> void:
-
+	if !can_move: return
 	if GameManager.player_ref:
 		var to_player := GameManager.player_ref.global_position - global_transform.origin
 		if to_player.length_squared() <= CHASE_RANGE * CHASE_RANGE:

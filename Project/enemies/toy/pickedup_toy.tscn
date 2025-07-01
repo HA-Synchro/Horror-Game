@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf7gkegs6ihmq"]
 
-[ext_resource type="Script" uid="uid://dfdsj6vbdl245" path="res://toy/toy.gd" id="1_qbh5o"]
+[ext_resource type="Script" uid="uid://dfdsj6vbdl245" path="res://enemies/toy/pickedup_toy.gd" id="1_qbh5o"]
 [ext_resource type="ArrayMesh" uid="uid://dnwu2tojrgmg6" path="res://assets/models/toy.obj" id="1_qm7xx"]
 [ext_resource type="Texture2D" uid="uid://y3gr306ychnr" path="res://assets/models/m_toy.png" id="2_qbh5o"]
 

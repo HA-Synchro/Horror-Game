@@ -63,6 +63,8 @@ size = Vector3(0.5, 4, 3)
 [node name="Door" type="Node3D"]
 
 [node name="Door" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_w6aom")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Door"]

@@ -3,7 +3,7 @@ extends RayCast3D
 var hit_obj : Interactable3D = null
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_colliding():
 		
 		
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 			hit_obj = null
 			
 		hit_obj = get_collider()
-		hit_obj.on_ray_cast_collide((get_collision_point() + global_position) / 2)
+		hit_obj.on_ray_cast_collide()
 	else:
 		if hit_obj:
 			hit_obj.on_ray_cast_uncollide()

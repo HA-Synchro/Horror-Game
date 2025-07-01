@@ -14,7 +14,7 @@ func _ready() -> void:
 	battery = 4
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("torch"):
 		if !can_use_torch: return
 		if battery <= 0: return
