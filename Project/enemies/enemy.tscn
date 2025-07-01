@@ -29,3 +29,7 @@ debug_enabled = true
 transform = Transform3D(-1.5, 1.31134e-07, 5.73206e-15, 0, -6.55671e-08, 1.5, 1.31134e-07, 1.5, 6.55671e-08, 0.00412434, 1.53488, -0.429534)
 collision_mask = 3
 script = ExtResource("2_rbcdm")
+
+[node name="SeeingRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(-1.5, 1.31134e-07, 5.73206e-15, 0, -6.55671e-08, 1.5, 1.31134e-07, 1.5, 6.55671e-08, 0.00412434, 1.53488, -0.429534)
+collide_with_areas = true

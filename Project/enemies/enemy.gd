@@ -2,6 +2,8 @@ extends CharacterBody3D
 class_name Enemy3D
 
 @onready var nav : NavigationAgent3D = $NavigationAgent3D
+@onready var seeing_ray_cast: RayCast3D = $SeeingRayCast
+@onready var interact_ray_cast: RayCast3D = $InteractRayCast
 
 const SPEED            : float = 2.5     
 const CHASE_RANGE      : float = 12.0   
@@ -19,15 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !can_move: return
 	if GameManager.player_ref:
-		var to_player := GameManager.player_ref.global_position - global_transform.origin
-		if to_player.length_squared() <= CHASE_RANGE * CHASE_RANGE:
-			nav.set_target_position(GameManager.player_ref.global_position)
-			_wander_t = 0.0
-		else:
-			_wander_t -= delta
-			if _wander_t <= 0.0 or nav.is_navigation_finished():
-				_pick_new_wander_point()
-				_wander_t = WANDER_COOLDOWN
+		get_new_target_position(delta)
 
 	
 	var next_pos := nav.get_next_path_position()
@@ -39,6 +33,21 @@ func _physics_process(delta: float) -> void:
 		look_at(global_transform.origin + dir, Vector3.UP)
 
 
+func get_new_target_position(delta: float):
+	if is_behind_wall():
+		if !GameManager.player_ref.last_used_door: return
+		nav.set_target_position(GameManager.player_ref.last_used_door.mesh_instance_3d.global_position)
+		GameManager.player_ref.last_used_door = null
+	else:
+		var to_player := GameManager.player_ref.global_position - global_transform.origin
+		if to_player.length_squared() <= CHASE_RANGE * CHASE_RANGE:
+			nav.set_target_position(GameManager.player_ref.global_position)
+			_wander_t = 0.0
+		else:
+			_wander_t -= delta
+			if _wander_t <= 0.0 or nav.is_navigation_finished():
+				_pick_new_wander_point()
+				_wander_t = WANDER_COOLDOWN
 
 func _pick_new_wander_point() -> void:
 	var random_dir := Vector3(
@@ -54,3 +63,13 @@ func _pick_new_wander_point() -> void:
 		candidate = NavigationServer3D.map_get_closest_point(nav_map, candidate)
 
 	nav.set_target_position(candidate)
+
+func is_behind_wall() -> bool:
+	seeing_ray_cast.target_position = to_local(GameManager.player_ref.global_position)
+	if seeing_ray_cast.is_colliding():
+		if seeing_ray_cast.get_collider() == GameManager.player_ref:
+			return false
+	if interact_ray_cast.is_colliding():
+		if interact_ray_cast.get_collider() is Door3D:
+			return false
+	return true

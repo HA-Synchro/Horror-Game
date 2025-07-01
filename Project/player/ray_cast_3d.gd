@@ -2,6 +2,7 @@ extends RayCast3D
 
 var hit_obj : Interactable3D = null
 
+@onready var player: Player3D = $"../../.."
 
 func _process(_delta: float) -> void:
 	if is_colliding():

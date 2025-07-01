@@ -3,7 +3,7 @@ class_name Cupboard3D
 
 
 func _ready() -> void:
-	if $"../Toy".get_child(0):
+	if $"../Toy".get_children() != []:
 		can_interact = false
 
 

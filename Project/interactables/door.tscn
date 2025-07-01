@@ -58,11 +58,12 @@ _data = {
 size = Vector3(0.5, 4, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i400r"]
+margin = 2.0
 size = Vector3(0.5, 4, 3)
 
 [node name="Door" type="Node3D"]
 
-[node name="Door" type="StaticBody3D" parent="."]
+[node name="Door" type="StaticBody3D" parent="." groups=["Doors"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_w6aom")

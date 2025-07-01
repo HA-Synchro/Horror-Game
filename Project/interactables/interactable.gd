@@ -10,7 +10,6 @@ var can_interact : bool = true
 func _unhandled_input(_event: InputEvent) -> void:
 	if is_focused:
 		if Input.is_action_just_pressed("interact"):
-			print("Interacted with object: %s" % self)
 			interact()
 
 func on_ray_cast_collide() -> void:

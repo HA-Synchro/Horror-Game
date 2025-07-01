@@ -39,7 +39,7 @@ var time_since_last_footstep : float = 0.0
 var can_take_input : bool = true
 var mouse_input : Vector2
 
-
+var last_used_door : Door3D = null
 
 func _ready() -> void:
 	GameManager.player_ref = self
