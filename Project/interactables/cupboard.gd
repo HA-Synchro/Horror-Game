@@ -28,3 +28,21 @@ func interact():
 		self.get_owner().add_child(toy)
 		toy.global_position = $"../ToySpawnLocation".global_position
 		toy.can_move = true
+
+func on_ray_cast_collide() -> void:
+	if !can_interact: 
+		on_ray_cast_uncollide()
+		return
+		
+	var picked_up_toy : PickedUpToy3D = GameManager.player_ref.l_hand.get_child(0)
+	if !picked_up_toy:
+		on_ray_cast_uncollide()
+		return
+	
+	
+	is_focused = true
+	UIManager.show_crosshair()
+
+func on_ray_cast_uncollide() -> void:
+	is_focused = false
+	UIManager.hide_crosshair()
