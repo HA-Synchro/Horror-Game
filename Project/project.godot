@@ -30,7 +30,12 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg")
+enabled=PackedStringArray()
+
+[global_group]
+
+NavigationRegion=""
+Enemies=""
 
 [input]
 
