@@ -44,14 +44,12 @@ var last_used_door : Door3D = null
 func _ready() -> void:
 	GameManager.player_ref = self
 	GameManager.active_player = self
+	
 	for child in $Body.find_children("*", "VisualInstance3D"):
-		child.set_layer_mask_value(1, false)
-		child.set_layer_mask_value(2, true) # world body
+		child.set_layer_mask_value(1, false) 
+		child.set_layer_mask_value(2, true) # not camer body
 		
-	for child in $Head.find_children("*", "VisualInstance3D"):
-		child.set_layer_mask_value(1, false)
-		child.set_layer_mask_value(2, false) # world body 
-		child.set_layer_mask_value(3, true) # player hand
+
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -81,19 +79,19 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_input(delta : float) -> void:
-	if !can_take_input: return
+	if can_take_input:
 	#region SourceMovement
-	input_dir = Input.get_vector("move_left","move_right", "move_forward", "move_backward").normalized()
-	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
+		input_dir = Input.get_vector("move_left","move_right", "move_forward", "move_backward").normalized()
+		wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
 	
-	var cur_speed_in_wish_dir : float = self.velocity.dot(wish_dir)
-	var add_speed_till_cap :float = get_move_speed() - cur_speed_in_wish_dir
+		var cur_speed_in_wish_dir : float = self.velocity.dot(wish_dir)
+		var add_speed_till_cap :float = get_move_speed() - cur_speed_in_wish_dir
 	
-	# acceleration
-	if add_speed_till_cap > 0:
-		var accel_speed = acceleration * delta * get_move_speed()
-		accel_speed = min(accel_speed, add_speed_till_cap)
-		self.velocity += accel_speed * wish_dir
+		# acceleration
+		if add_speed_till_cap > 0:
+			var accel_speed = acceleration * delta * get_move_speed()
+			accel_speed = min(accel_speed, add_speed_till_cap)
+			self.velocity += accel_speed * wish_dir
 	
 	# friction
 	var control : float = max(self.velocity.length(), decceleration)

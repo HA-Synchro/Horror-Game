@@ -159,6 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.466, -0.976871, 8.14067)
 
 [node name="Toy" parent="." instance=ExtResource("10_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17686, -1.55729, -2.79486)
+speed = 5.0
 
 [node name="Cupboard" parent="." instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.18078, -1.45389, -2.55626)

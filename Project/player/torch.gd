@@ -15,6 +15,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(_event: InputEvent) -> void:
+	if !GameManager.player_ref.can_take_input: return
 	if Input.is_action_just_pressed("torch"):
 		if !can_use_torch: return
 		if battery <= 0: return

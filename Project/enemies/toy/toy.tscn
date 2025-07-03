@@ -63,4 +63,10 @@ script = ExtResource("6_uwhvu")
 shape = SubResource("SphereShape3D_sfmkp")
 debug_color = Color(0.957123, 1.15514e-06, 0.534264, 0.42)
 
+[node name="Target" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88629, 0)
+layers = 4
+billboard = 1
+text = "ada"
+
 [connection signal="body_entered" from="InteractArea3D" to="InteractArea3D" method="_on_body_entered"]

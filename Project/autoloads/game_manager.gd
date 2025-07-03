@@ -14,7 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			player_ref.camera.current = false
 			player_ref.can_take_input = false
-			player_ref.hide()
+			# player_ref.hide()
 			
 			debug_player_ref.show()
 			debug_player_ref.can_take_input = true

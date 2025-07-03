@@ -88,7 +88,7 @@ func pick_new_wander_point() -> void:
 
 func get_closest_door_to_target() -> Door3D:
 	
-	var closest_door : Door3D
+	var closest_door : Door3D = null
 	if nav.get_current_navigation_path() == PackedVector3Array(): return null
 	
 	nav.set_target_position(current_target.global_position) 
@@ -100,7 +100,7 @@ func get_closest_door_to_target() -> Door3D:
 
 	for door in get_tree().get_nodes_in_group("Doors") as Array[Door3D]:
 		# set first door to be closest
-		if !closest_door:
+		if closest_door == null:
 			if door.door_open:
 				continue
 			closest_door = door

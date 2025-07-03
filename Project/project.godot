@@ -83,6 +83,7 @@ debug={
 
 3d_render/layer_1="Worlds"
 3d_render/layer_2="PlayerBody"
+3d_render/layer_3="DebugLayer"
 3d_physics/layer_1="World"
 3d_physics/layer_2="Interactable"
 

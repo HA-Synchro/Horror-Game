@@ -7,6 +7,10 @@ var does_have_knife : bool = false
 
 @onready var knife : Node3D = get_tree().get_first_node_in_group("InteractableKnife")
 
+func _process(delta: float) -> void:
+	$Target.text = current_target.name
+
+
 func get_new_target_position(delta: float):
 	if current_target == null:
 		if !does_have_knife: current_target = knife
