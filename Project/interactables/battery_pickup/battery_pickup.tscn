@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://btp1maeiui1gx"]
+
+[ext_resource type="Script" uid="uid://cspj4getsaits" path="res://interactables/battery_pickup/battery_pickup.gd" id="1_g2kgg"]
+[ext_resource type="ArrayMesh" uid="uid://21hnav6lm23e" path="res://assets/models/battery.obj" id="2_fu1us"]
+[ext_resource type="Texture2D" uid="uid://dts7s1ibv1bmq" path="res://assets/models/m_battery.png" id="2_g2kgg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okr0b"]
+size = Vector3(0.538, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxli8"]
+albedo_texture = ExtResource("2_g2kgg")
+texture_filter = 0
+
+[node name="BatteryPickup" type="Node3D"]
+
+[node name="Interactable3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_g2kgg")
+metadata/_custom_type_script = "uid://dvad25kk6si58"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00350952, 0.022644, -0.0145378)
+shape = SubResource("BoxShape3D_okr0b")
+
+[node name="Battery" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.011761, 2.98023e-08, -0.0161136)
+material_override = SubResource("StandardMaterial3D_dxli8")
+mesh = ExtResource("2_fu1us")
+skeleton = NodePath("../Interactable3D")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bioi8ixjuas8l"]
+[gd_scene load_steps=7 format=3 uid="uid://bioi8ixjuas8l"]
 
 [ext_resource type="Script" uid="uid://01ml2eoyllnc" path="res://enemies/enemy.gd" id="1_rqpjp"]
-[ext_resource type="Script" uid="uid://dr82sn87e6d8s" path="res://enemies/enemy_raycast.gd" id="2_rbcdm"]
+[ext_resource type="Script" uid="uid://dm1cma5ebfu40" path="res://enemies/enemy_interacter.gd" id="2_7frlh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro8vv"]
 albedo_color = Color(0.290196, 1, 1, 1)
@@ -10,6 +10,9 @@ albedo_color = Color(0.290196, 1, 1, 1)
 material = SubResource("StandardMaterial3D_ro8vv")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbcdm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_orwns"]
+radius = 0.8
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_rqpjp")
@@ -25,11 +28,12 @@ shape = SubResource("CapsuleShape3D_rbcdm")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(-1.5, 1.31134e-07, 5.73206e-15, 0, -6.55671e-08, 1.5, 1.31134e-07, 1.5, 6.55671e-08, 0.00412434, 1.53488, -0.429534)
-collision_mask = 3
-script = ExtResource("2_rbcdm")
+[node name="InteractArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.887004, 0)
+script = ExtResource("2_7frlh")
 
-[node name="SeeingRayCast" type="RayCast3D" parent="."]
-transform = Transform3D(-1.5, 1.31134e-07, 5.73206e-15, 0, -6.55671e-08, 1.5, 1.31134e-07, 1.5, 6.55671e-08, 0.00412434, 1.53488, -0.429534)
-collide_with_areas = true
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea3D"]
+shape = SubResource("SphereShape3D_orwns")
+debug_color = Color(0.957123, 1.15514e-06, 0.534264, 0.42)
+
+[connection signal="body_entered" from="InteractArea3D" to="InteractArea3D" method="_on_body_entered"]

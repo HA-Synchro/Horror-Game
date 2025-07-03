@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://fb16vt8ohtb8"]
+
+[ext_resource type="Script" uid="uid://bimdut4gtp2sp" path="res://debug_player/debug_player.gd" id="1_hqnym"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4sf7y"]
+
+[node name="DebugPlayer" type="CharacterBody3D"]
+visible = false
+script = ExtResource("1_hqnym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4sf7y")
+disabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+omni_range = 20.0
+omni_attenuation = 0.0

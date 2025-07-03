@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcdvlb1c5443h"]
+
+[ext_resource type="Script" uid="uid://b4wdu07d4aalg" path="res://interactables/cupboard/cupboard.gd" id="1_ws3vq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ws3vq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ws3vq"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.325519, 0.462804, 0.125025, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_smwup"]
+material = SubResource("StandardMaterial3D_ws3vq")
+size = Vector3(0.8, 0.8, 0.8)
+subdivide_width = 1
+
+[node name="Cupboard" type="Node3D"]
+
+[node name="Interactable3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("toy_idle_location", "toy_spawn_marker")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ws3vq")
+toy_idle_location = NodePath("../ToyIdleLocation")
+toy_spawn_marker = NodePath("../ToySpawnLocation")
+metadata/_custom_type_script = "uid://dvad25kk6si58"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D"]
+shape = SubResource("BoxShape3D_ws3vq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_smwup")
+
+[node name="ToyIdleLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.959292, 0)
+
+[node name="ToySpawnLocation" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980985, -0.0833732, 0)
+gizmo_extents = 1.35

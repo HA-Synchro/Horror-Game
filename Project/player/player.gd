@@ -43,9 +43,17 @@ var last_used_door : Door3D = null
 
 func _ready() -> void:
 	GameManager.player_ref = self
+	GameManager.active_player = self
 	for child in $Body.find_children("*", "VisualInstance3D"):
 		child.set_layer_mask_value(1, false)
-		child.set_layer_mask_value(2, true) # world body 
+		child.set_layer_mask_value(2, true) # world body
+		
+	for child in $Head.find_children("*", "VisualInstance3D"):
+		child.set_layer_mask_value(1, false)
+		child.set_layer_mask_value(2, false) # world body 
+		child.set_layer_mask_value(3, true) # player hand
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !can_take_input: return

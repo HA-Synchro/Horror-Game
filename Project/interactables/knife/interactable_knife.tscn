@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b48whfdk4it2a"]
+
+[ext_resource type="Script" uid="uid://cvc6jiiobt717" path="res://interactables/knife/interactable_knife.gd" id="1_5saxj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5saxj"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5saxj"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="PickableKnife" type="Node3D" groups=["InteractableKnife"]]
+
+[node name="Interactable3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("knife_model")]
+script = ExtResource("1_5saxj")
+knife_model = NodePath("../CSGBox3D")
+metadata/_custom_type_script = "uid://dvad25kk6si58"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D"]
+shape = SubResource("BoxShape3D_5saxj")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.2, 0.2, 0.3)
+material = SubResource("StandardMaterial3D_5saxj")

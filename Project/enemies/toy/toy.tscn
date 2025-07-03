@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgfs7cwd2me60"]
+
+[ext_resource type="Script" uid="uid://dxgxiviunbh6y" path="res://interactables/interactable_toy/interactable_toy.gd" id="1_3oemn"]
+[ext_resource type="Script" uid="uid://dmf4ph5cr8yuc" path="res://enemies/toy/toy.gd" id="1_c6v7f"]
+[ext_resource type="ArrayMesh" uid="uid://dnwu2tojrgmg6" path="res://assets/models/toy.obj" id="2_3oemn"]
+[ext_resource type="Texture2D" uid="uid://y3gr306ychnr" path="res://assets/models/m_toy.png" id="3_3oemn"]
+[ext_resource type="Script" uid="uid://dm1cma5ebfu40" path="res://enemies/enemy_interacter.gd" id="6_uwhvu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3oemn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p715j"]
+resource_name = "Toy"
+albedo_texture = ExtResource("3_3oemn")
+metallic = 0.5
+texture_filter = 0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0kp13"]
+margin = 1.0
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sfmkp"]
+radius = 1.0
+
+[node name="Toy" type="CharacterBody3D" node_paths=PackedStringArray("knife_location")]
+script = ExtResource("1_c6v7f")
+knife_location = NodePath("KnifeLocation")
+metadata/_custom_type_script = "uid://01ml2eoyllnc"
+
+[node name="Interactable3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_3oemn")
+metadata/_custom_type_script = "uid://dvad25kk6si58"
+
+[node name="InteractableCollision" type="CollisionShape3D" parent="Interactable3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292908, 0)
+shape = SubResource("BoxShape3D_3oemn")
+debug_color = Color(0.68806, 0.499221, 7.70092e-07, 0.42)
+
+[node name="Toy" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.303064, 0, 0.397684, 0, 0.5, 0, -0.397684, 0, -0.303064, 0, 0, 0)
+mesh = ExtResource("2_3oemn")
+surface_material_override/0 = SubResource("StandardMaterial3D_p715j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999922, 0, 0.0124962, 0, 1, 0, -0.0124962, 0, 0.999922, 0, 0.112032, 0)
+shape = SubResource("CapsuleShape3D_0kp13")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 0.5
+path_max_distance = 10.01
+debug_enabled = true
+
+[node name="KnifeLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560088, 0, 0)
+
+[node name="InteractArea3D" type="Area3D" parent="."]
+script = ExtResource("6_uwhvu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea3D"]
+shape = SubResource("SphereShape3D_sfmkp")
+debug_color = Color(0.957123, 1.15514e-06, 0.534264, 0.42)
+
+[connection signal="body_entered" from="InteractArea3D" to="InteractArea3D" method="_on_body_entered"]

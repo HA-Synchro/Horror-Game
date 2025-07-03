@@ -10,7 +10,7 @@ var can_interact : bool = true
 func _unhandled_input(_event: InputEvent) -> void:
 	if is_focused:
 		if Input.is_action_just_pressed("interact"):
-			interact()
+			interact(GameManager.player_ref)
 
 func on_ray_cast_collide() -> void:
 	if !can_interact: 
@@ -24,5 +24,5 @@ func on_ray_cast_uncollide() -> void:
 	is_focused = false
 	UIManager.hide_crosshair()
 
-func interact() -> void:
+func interact(body : CharacterBody3D) -> void:
 	pass
