@@ -69,4 +69,10 @@ layers = 4
 billboard = 1
 text = "ada"
 
+[node name="Unreachable" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10605, 0)
+layers = 4
+billboard = 1
+text = "ada"
+
 [connection signal="body_entered" from="InteractArea3D" to="InteractArea3D" method="_on_body_entered"]

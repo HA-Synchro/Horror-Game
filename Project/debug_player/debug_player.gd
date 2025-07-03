@@ -7,8 +7,7 @@ var can_take_input : bool = false
 
 func _ready() -> void:
 	GameManager.debug_player_ref = self
-	for i in 18:
-		camera.set_cull_mask_value(i, true)
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
