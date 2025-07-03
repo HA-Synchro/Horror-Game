@@ -19,9 +19,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			var mouse_input = event.relative
-			camera.rotation.y += -mouse_input.x * GameManager.player_ref.look_sensitivity
+			self.rotation.y += -mouse_input.x * GameManager.player_ref.look_sensitivity
 			# self.rotation.y = lerp(self.rotation.y, self.rotation.y + -event.relative.x * look_sensitivity, .8)
-			camera.rotation.x += (-mouse_input.y * GameManager.player_ref.look_sensitivity)
+			self.rotation.x += (-mouse_input.y * GameManager.player_ref.look_sensitivity)
 
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
