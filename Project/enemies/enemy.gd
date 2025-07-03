@@ -95,7 +95,7 @@ func get_closest_door_to_target() -> Door3D:
 	nav.get_next_path_position()
 	await nav.path_changed
 	
-	var last_reachable_position : Vector3 = nav.get_final_position()
+	var last_reachable_position : Vector3 = current_target.global_position
 	
 
 	for door in get_tree().get_nodes_in_group("Doors") as Array[Door3D]:

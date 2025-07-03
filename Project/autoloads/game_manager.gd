@@ -29,5 +29,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			debug_player_ref.hide()
 			debug_player_ref.can_take_input = false
 			debug_player_ref.camera.current = false
+			
 func _ready() -> void:
 	nav_region = get_tree().get_first_node_in_group("NavigationRegion")

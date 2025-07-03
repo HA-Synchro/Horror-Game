@@ -55,6 +55,8 @@ debug_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560088, 0, 0)
 
 [node name="InteractArea3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("6_uwhvu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea3D"]

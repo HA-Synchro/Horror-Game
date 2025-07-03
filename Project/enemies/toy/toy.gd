@@ -24,5 +24,6 @@ func get_new_target_position(delta: float):
 	else:
 		target_last_position = current_target.global_position
 		nav.set_target_position(target_last_position)
+		nav.get_next_path_position()
 		wander_time = 0.0
 		
