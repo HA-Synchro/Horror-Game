@@ -87,11 +87,6 @@ debug={
 3d_physics/layer_1="World"
 3d_physics/layer_2="Interactable"
 
-[navigation]
-
-3d/default_cell_size=0.1
-3d/merge_rasterizer_cell_scale=0.001
-
 [physics]
 
 3d/default_gravity=50.0
