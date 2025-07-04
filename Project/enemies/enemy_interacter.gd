@@ -4,6 +4,10 @@ class_name EnemyInteractArea3D
 @onready var toy : Enemy3D = get_parent() as Enemy3D
 
 
+func _process(delta: float) -> void:
+	for body in get_overlapping_bodies():
+		_on_body_entered(body)
+
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player3D:
 		if toy.does_have_knife:

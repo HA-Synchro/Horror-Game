@@ -41,5 +41,6 @@ func interact(body : CharacterBody3D):
 		GameManager.nav_region.bake_navigation_mesh()
 		await GameManager.nav_region.bake_finished
 		
+		if !body: return
 		if body is ToyEnemy3D:
 			body.get_new_target()

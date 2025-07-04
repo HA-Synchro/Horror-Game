@@ -119,7 +119,7 @@ environment = SubResource("Environment_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.04659, 1.19838, -0.168357)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133419, 1.54097, -0.00816345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77773, 1.54097, 2.85734)
 spawn_as_debug_player = true
 
 [node name="Lights" type="Node3D" parent="."]
