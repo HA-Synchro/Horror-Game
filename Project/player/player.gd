@@ -10,6 +10,7 @@ class_name Player3D
 @onready var def_l_hand_pos : Vector3 = l_hand.position
 
 #region ExportVariables
+@export var spawn_as_debug_player : bool = false
 @export_group("Movement")
 @export var look_sensitivity : float = 0.006
 @export var walk_speed : float = 6
@@ -43,7 +44,11 @@ var last_used_door : Door3D = null
 
 func _ready() -> void:
 	GameManager.player_ref = self
-	GameManager.active_player = self
+	
+	if spawn_as_debug_player:
+		GameManager.set_debug_player_active()
+	else:
+		GameManager.set_normal_player_active()
 	
 	for child in $Body.find_children("*", "VisualInstance3D"):
 		child.set_layer_mask_value(1, false) 

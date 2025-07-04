@@ -5,16 +5,16 @@ class_name Enemy3D
 
 @export var speed : float = 2.5     
 
-var current_target : Node3D:
-	set(value):
-		current_target = value
-		if current_target == null:
-			return
-		elif current_target is Door3D:
-			nav.set_target_position(current_target.mesh_instance_3d.global_position)
-		else:
-			nav.set_target_position(current_target.global_position)
-		nav.get_next_path_position() # calls update for nav
+var current_target : Node3D
+	#set(value):
+		#current_target = value
+		#if current_target == null:
+			#return
+		#elif current_target is Door3D:
+			#nav.set_target_position(current_target.mesh_instance_3d.global_position)
+		#else:
+			#nav.set_target_position(current_target.global_position)
+		#nav.get_next_path_position() # calls update for nav
 
 var target_last_position : Vector3           
 var wish_dir : Vector3
@@ -32,11 +32,7 @@ func _physics_process(delta: float) -> void:
 	move_on_nav_path(delta)
 
 func move_on_nav_path(delta: float) -> void:
-	if !nav.is_target_reachable():
-		$Unreachable.text = "Unreachable"
-	else:
-		$Unreachable.text = ""
-		
+	
 	wish_dir = (nav.get_next_path_position() - global_transform.origin).normalized()
 	velocity = wish_dir * speed
 	move_and_slide()
@@ -64,14 +60,10 @@ func get_new_target():
 func get_closest_door_to_target() -> Door3D:
 	
 	var closest_door : Door3D = null
-	if nav.get_current_navigation_path() == PackedVector3Array(): return null
+	# if nav.get_current_navigation_path() == PackedVector3Array(): return null
 	
-	nav.set_target_position(current_target.global_position) 
-	nav.get_next_path_position()
-	await nav.path_changed
-	
-	var last_reachable_position : Vector3 = current_target.global_position
-	
+	var last_reachable_position : Vector3 = nav.get_final_position()
+	print("[%s] Last Reachable Position is: %s" % [self, last_reachable_position])
 
 	for door in get_tree().get_nodes_in_group("Doors") as Array[Door3D]:
 		# set first door to be closest
@@ -94,4 +86,4 @@ func on_rebake_nav_mesh() -> void:
 
 func on_target_reached() -> void:
 	print("Target Reached")
-	get_new_target()
+	# get_new_target()

@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			self.rotation.y += -mouse_input.x * GameManager.player_ref.look_sensitivity
 			# self.rotation.y = lerp(self.rotation.y, self.rotation.y + -event.relative.x * look_sensitivity, .8)
 			self.rotation.x += (-mouse_input.y * GameManager.player_ref.look_sensitivity)
+			self.rotation.x = clamp(self.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
 	handle_input(delta)
