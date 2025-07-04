@@ -22,8 +22,8 @@ var can_move : bool = true
 
 func _ready() -> void:         
 	add_to_group("Enemies")     
-	GameManager.nav_region.bake_finished.connect(on_rebake_nav_mesh)
-	nav.target_reached.connect(on_target_reached)
+	#GameManager.nav_region.bake_finished.connect(on_rebake_nav_mesh)
+	#nav.target_reached.connect(on_target_reached)
 	get_new_target()
 
 func _physics_process(delta: float) -> void:
@@ -81,9 +81,9 @@ func get_closest_door_to_target() -> Door3D:
 		
 	return closest_door
 
-func on_rebake_nav_mesh() -> void:
-	current_target = null
+#func on_rebake_nav_mesh() -> void:
+	#current_target = null
 
-func on_target_reached() -> void:
-	print("Target Reached")
-	# get_new_target()
+#func on_target_reached() -> void:
+	#print("Target Reached")
+	## get_new_target()

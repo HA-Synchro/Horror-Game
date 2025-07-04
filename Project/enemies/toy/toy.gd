@@ -33,14 +33,13 @@ func move_on_nav_path(delta: float) -> void:
 	nav.get_next_path_position()
 	
 	if !nav.is_target_reachable():
-		if current_target is Door3D: 
+		if not current_target is Door3D: 
+			var closest_door : Door3D =  get_closest_door_to_target()
+			if closest_door == null:
+				return
+			current_target = closest_door
+		else:
 			get_new_target()
-			return
-			
-		var closest_door : Door3D =  get_closest_door_to_target()
-		if closest_door == null:
-			return
-		current_target = closest_door
 	
 	nav.set_target_position(current_target.global_position)
 	nav.get_next_path_position()
@@ -53,12 +52,12 @@ func move_on_nav_path(delta: float) -> void:
 		look_at(global_transform.origin + wish_dir, Vector3.UP)
 
 func get_new_target():
-	if current_target == null:
-		print("[%s] -------------------------------------------------------------" % self)
-		print("[%s] Getting new target...." % self)
-		if !does_have_knife: current_target = knife
-		else: current_target = GameManager.player_ref
-		print("[%s] New Target is: %s" % [self, current_target])
+	
+	print("[%s] -------------------------------------------------------------" % self)
+	print("[%s] Getting new target...." % self)
+	if !does_have_knife: current_target = knife
+	else: current_target = GameManager.player_ref
+	print("[%s] New Target is: %s" % [self, current_target])
 	
 
 	nav.set_target_position(current_target.global_position)

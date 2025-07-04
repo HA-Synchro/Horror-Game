@@ -16,8 +16,6 @@ func _on_body_entered(body: Node3D) -> void:
 			body.interact(toy)
 			print("[%s] Interacted with: %s" % [toy, body])
 			
-			if toy.current_target == body:
-				toy.current_target = null
 				
 	elif body is InteractableKnife3D:
 		body.interact(toy)

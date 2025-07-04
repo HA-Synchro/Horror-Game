@@ -13,10 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://dcdvlb1c5443h" path="res://interactables/cupboard/cupboard.tscn" id="11_efxa6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5vw27"]
-vertices = PackedVector3Array(27.2524, 10.5, -7.28072, 3.00237, 10.5, -7.28072, 2.75237, 10.5, -6.03072, 2.75237, 10.5, 11.2193, 3.00237, 10.5, 24.7193, 27.2524, 10.5, 24.7193, -21.7476, 10.5, -6.03072, -21.7476, 10.5, 11.2193, 21.0024, -1.5, 12.2193, 21.2524, -1.5, 12.7193, 25.0024, -1.5, 12.2193, 25.0024, -1.5, -6.53072, 6.25237, -1.5, -6.53072, 6.25237, -1.5, 12.2193, 4.25237, -1.5, 9.46928, 4.50237, -1.5, 8.71928, 4.25237, -1.5, -4.28072, -9.49763, -1.5, -4.28072, -9.49763, -1.5, 9.46928, -19.7476, -1.5, 0.719278, -19.7476, -1.5, 9.46928, -10.9976, -1.5, 9.46928, -10.9976, -1.5, 0.719278, 25.0024, -1.5, 14.9693, 21.2524, -1.5, 14.4693, 21.0024, -1.5, 14.9693, 25.0024, -1.5, 23.7193, 6.25237, -1.5, 23.7193, 6.25237, -1.5, 14.9693)
-polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 4), PackedInt32Array(4, 1, 0), PackedInt32Array(4, 0, 5), PackedInt32Array(2, 3, 6), PackedInt32Array(6, 3, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(13, 12, 8), PackedInt32Array(8, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 18), PackedInt32Array(16, 18, 17), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(28, 25, 27), PackedInt32Array(27, 25, 26)]
+vertices = PackedVector3Array(27.5024, 10.5, -7.53072, 2.75237, 10.5, -7.53072, 2.50237, 10.5, -6.28072, 2.50237, 10.5, 11.4693, 2.75237, 10.5, 24.9693, 27.5024, 10.5, 24.9693, -21.9976, 10.5, -6.28072, -21.9976, 10.5, 11.4693, 6.00237, -1.5, -6.78072, 6.00237, -1.5, 12.4693, 25.2524, -1.5, 12.4693, 25.2524, -1.5, -6.78072, 4.50237, -1.5, 9.71928, 4.75237, -1.5, 8.96928, 4.50237, -1.5, -4.53072, -9.74763, -1.5, -4.53072, -9.74763, -1.5, 9.71928, -19.9976, -1.5, 0.469278, -19.9976, -1.5, 9.71928, -10.7476, -1.5, 9.71928, -10.7476, -1.5, 0.469278, 23.5024, -1.5, 14.7193, 23.2524, -1.5, 13.7193, 21.0024, -1.5, 13.7193, 20.7524, -1.5, 14.7193, 25.2524, -1.5, 23.9693, 6.00237, -1.5, 23.9693, 6.00237, -1.5, 14.7193, 25.2524, -1.5, 14.7193)
+polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 4), PackedInt32Array(4, 1, 0), PackedInt32Array(4, 0, 5), PackedInt32Array(2, 3, 6), PackedInt32Array(6, 3, 7), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 16), PackedInt32Array(14, 16, 15), PackedInt32Array(20, 19, 17), PackedInt32Array(17, 19, 18), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(24, 21, 25), PackedInt32Array(27, 24, 26), PackedInt32Array(26, 24, 25), PackedInt32Array(21, 28, 25)]
 sample_partition_type = 1
 geometry_collision_mask = 1
+agent_radius = 0.25
+region_min_size = 1.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.149762, 0.186532, 0.237667, 1)
@@ -108,7 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3278, -2.07094, 1.40024)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29247, -2.07094, 5.97064)
 
 [node name="Door3" parent="NavigationRegion3D/Doors" instance=ExtResource("3_1bvp3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.6016, -2.07094, 13.6415)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.6016, -2.07094, 13.1722)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")

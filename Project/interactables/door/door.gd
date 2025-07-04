@@ -30,11 +30,16 @@ func interact(body : CharacterBody3D):
 			animation_player.play("open")
 		
 		
+		
 		#await tween.finished
 		#tween.kill()
 		await animation_player.animation_finished
 		can_interact = true
 		if GameManager.nav_region.is_baking():
 			await GameManager.nav_region.bake_finished
-			
+
 		GameManager.nav_region.bake_navigation_mesh()
+		await GameManager.nav_region.bake_finished
+		
+		if body is ToyEnemy3D:
+			body.get_new_target()
